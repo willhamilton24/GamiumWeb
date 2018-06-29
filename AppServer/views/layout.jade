@@ -1,0 +1,63 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.0.13/css/all.css')
+    link(rel='stylesheet', href='/stylesheets/slideshow.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Encode+Sans+Condensed')
+
+    script(async, src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
+    script(src='/javascripts/ads.js')
+    script(src='/javascripts/sticky.js')
+
+  body
+
+    .navbar
+      a.brand(href='/')
+        img.logo(src='/images/Gamium.png')
+      form.search
+        button.searchbutton(type='submit')
+          i.fa.fa-search.searchicon
+        input.searchbar(type='text', placeholder='Search For Game Deals...', name='searchbar')
+      //a.faq(href='/faq') FAQ
+
+    .dmz
+
+    block content
+
+    footer
+      a.brand(href='/')
+        img.logo(src='/images/Gamium.png')
+
+      //ul.footer-nav
+        //li.footer-nav-element
+          //a(href='/faq') FAQ
+        //li.footer-nav-element
+          //a(href='/contact') Contact
+
+      .sl    
+        ul.socials
+          li.socialbtn
+            a.fab.fa-facebook-square(href='https://www.facebook.com/gamiumllc/?modal=admin_todo_tour')
+          li.socialbtn
+            a.fab.fa-twitter-square(href='https://twitter.com/GamiumLLC')
+        ul.socials
+          li.socialbtn
+            a.fab.fa-instagram(href='https://www.instagram.com/gamiumllc/')
+          li.socialbtn
+            a.fab.fa-steam-square(href='http://steamcommunity.com/groups/gamiumllc/')
+        ul.socials
+          li.socialbtn
+            a.fab.fa-reddit-square(href='https://www.reddit.com/user/GamiumLLC')
+          li.socialbtn
+            a.fas.fa-envelope-square(href='mailto:gamiumllc@gmail.com')
+
+      form.search.footer-search
+        button.searchbutton(type='submit')
+          i.fa.fa-search.searchicon
+        input.searchbar(type='text', placeholder='Search For Game Deals...', name='searchbar')
+
+      p.copy Copyright Gamium LLC, 2018. All Rights Reserved
+

@@ -1,0 +1,63 @@
+extends layout
+
+block content
+
+  // Featured Games !!TODO!! Link Thumbs to Games
+  .slideshow-container
+
+    h1.fg Featured Games
+
+    // Slides - !!!TODO!!! Reformat into Jade Funtion
+    .mySlides.fade
+      .numbertext 1 / 3
+      img(src='images/featured/1.jpg', style='width:100%')
+      .fgInfo 
+        p.fgTitle= fg1.name 
+        a.fgBtn(href='/') from #{fg1.price}
+
+    .mySlides.fade
+      .numbertext 2 / 3
+      img(src='images/featured/2.jpg', style='width:100%')
+      .fgInfo 
+        p.fgTitle= fg2.name
+        a.fgBtn(href='/') from #{fg2.price}
+
+    .mySlides.fade
+      .numbertext 3 / 3
+      img(src='images/featured/3.jpg', style='width:100%')
+      .fgInfo 
+        p.fgTitle= fg3.name
+        a.fgBtn(href='/') from #{fg3.price}
+
+    // Slideshow Buttons
+    // a.prev(onclick='plusSlides(-1)') &#10094;
+    // a.prev(onclick='plusSlides(1)') &#10095;
+
+  // Featured Game Slideshow Navigational Dots
+  // .slideshow-dots
+    // span.dot(onClick='currentSlide(1)')
+    // span.dot(onClick='currentSlide(2)')
+    // span.dot(onClick='currentSlide(3)')
+
+  // Slideshow Script
+  script(src='/javascripts/slideshow.js')
+
+
+  .games
+
+    h2.topSellersTitle Top Sellers
+
+    ul.tsl
+      each game in topSellers
+        li.listGame
+          a.gameLink(href='/')
+            img.tsImg(src= game.img)
+            .tsInfo
+              p.tsName= game.name
+              br
+              p.tsDev= game.dev
+              p.tsPrice= game.price
+
+
+  .homeAd
+  .homeAd
