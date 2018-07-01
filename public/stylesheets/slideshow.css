@@ -2,10 +2,12 @@
 
 .fg {
   margin-top: 2vh;
-  margin-bottom: 2vh;
+  margin-bottom: 3vh;
   margin-left: 0vw;
+  padding-bottom: 1vh;
   color: #28d693;
-  font-size: 3vh;
+  font-size: 5vh;
+  border-bottom: 0.15vh solid #28d693;
 }
 
 /* Slideshow container */
@@ -13,6 +15,8 @@
   max-width: 90vw;
   position: relative;
   margin: auto;
+  border-radius: 35px;
+  text-align: center;
 }
 
 /* Hide the images by default */
@@ -57,6 +61,7 @@
   position: absolute;
   bottom: 8px;
   width: 100%;
+  text-align: left;
 }
 
 .fgTitle {
@@ -80,7 +85,7 @@
   padding: 8px 12px;
   position: absolute;
   top: 0;
-  margin-top: 6vh;
+  margin-top: 11vh;
   z-index: 0;
 }
 

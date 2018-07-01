@@ -1,8 +1,8 @@
 body {
   padding: 0px;
   margin: 0px;
-  font-family: 'Encode Sans Condensed', sans-serif;
-  background-color: #222222;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #282828;
   color: #28d693;
 }
 
@@ -14,13 +14,14 @@ a {
 	margin: 0px;
 	padding: 0px;
 	height: 7vh;
-	background-color: #282828;
+	background-color: #333333;
 	opacity: 0.9;
 	overflow: hidden;
 	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: 100;
+	border-bottom: 1px solid slategrey;
 }
 
 .logo {
@@ -71,16 +72,16 @@ a {
 	width: 4vh;
 	border: none;
 	outline: none;
-	background-color: #333333;
+	background-color: #282828;
 	position: absolute;
 }
 
 .dmz {
-	height: 7vh;
+	height: 9vh;
 }
 
 footer {
-	background-color: #282828;
+	background-color: #333333;
 	height: 17vh;
 	opacity: 0.9;
 }
@@ -143,6 +144,11 @@ footer li a {
 	color: #424242;
 }
 
+.welcome {
+	text-align: center;
+	font-size: 4vh;
+}
+
 .games {
 	margin-top: 8vh;
 	margin-left: 18vw;
@@ -202,13 +208,79 @@ footer li a {
 	font-size: 2vh
 }
 
-.contact {
+.game {
 	margin-left: 20vw;
+	margin-right: 20vw;
+	margin-top: 5vh;
+	margin-bottom: 20vh;
 }
 
-.contactTitle {
-	font-size: 5vh;
+.gameInfo {
+	float: right;
+	width: 25vw;
 }
+
+.gameImg {
+	width: 35vw;
+}
+
+.gameTitle {
+	float: left;
+	padding-left: 2vw;
+	display: block;
+}
+
+.gameDP {
+	display: block;
+	margin: 0px;
+	padding-left: 2vw;
+}
+
+.gameDescription {
+	padding-left: 2vw;
+}
+
+.storePrices {
+	list-style-type: none;
+	padding-left: 0;
+	width: 35vw;
+}
+
+.storePrice {
+	background-color: #404040;
+	margin-bottom: 3vh;
+	height: 9vh;
+	border-radius: 9px;
+}
+
+.price {
+	text-decoration: none;
+	color: #28d693;
+	display: block;
+	float: right;
+	font-size: 3vh;
+	margin-top: 3vh;
+	margin-right: 2vw;
+}
+
+.storeIcon {
+	height: 5vh;
+	padding-left: 1vw;
+	margin-top: 2.5vh;
+	display: block;
+	float: left;
+}
+
+.storeLink {
+	text-decoration: none;
+	color: #28d693;
+	font-size: 2vh;
+	margin: 0px;
+	margin-top: 3.5vh;
+	margin-left: 1.5vw;
+	float: left;
+}
+
 
 
 @media only screen and (max-width: 450px) {
@@ -280,5 +352,7 @@ footer li a {
 }
 
 @media only screen and (max-width: 915px) {
-
+	.gameDescription {
+		display: none;
+	}
 }

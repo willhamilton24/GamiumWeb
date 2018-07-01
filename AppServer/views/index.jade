@@ -2,6 +2,9 @@ extends layout
 
 block content
 
+  h2.welcome Welcome To Gamium!
+
+
   // Featured Games !!TODO!! Link Thumbs to Games
   .slideshow-container
 
@@ -13,7 +16,7 @@ block content
       img(src='images/featured/1.jpg', style='width:100%')
       .fgInfo 
         p.fgTitle= fg1.name 
-        a.fgBtn(href='/') from #{fg1.price}
+        a.fgBtn(href='/game') from #{fg1.price}
 
     .mySlides.fade
       .numbertext 2 / 3

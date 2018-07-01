@@ -58,4 +58,17 @@ module.exports.homepage = function(req, res) {
 			}]
 	});
 }
-// TODO Add Game Page
+
+module.exports.game = function(req, res) {
+	res.render('game', {
+		title: 'Counter Strike: Global Offensive',
+		gameInfo: {
+			name: 'Counter Strike: Global Offensive',
+			dev: "Valve",
+			publisher: "Valve",
+			desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+			img: "https://steamcdn-a.opskins.media/steam/apps/730/header.jpg?t=1529967656",
+			releaseDate: "August 21, 2012"
+		}
+	})
+}
