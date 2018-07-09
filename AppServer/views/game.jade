@@ -3,31 +3,34 @@ extends layout
 block content
 
 
-  .game
-    img.gameImg(src= gameInfo.img)
-    .gameInfo
-      h1.gameTitle= gameInfo.name
-      br
-      h3.gameDP Developer : #{gameInfo.dev}
-      br
-      h3.gameDP Publisher : #{gameInfo.publisher}
-      br
-      h3.gameDP Release Date : #{gameInfo.releaseDate}
-      br
-      p.gameDescription= gameInfo.desc
+  .container.gameInfoCnt(style='margin-top: 7vh;')
+    h1.mobileTitle= gameInfo.name
+    .row
+      .col-lg-6.px-0
+        img.gameImg(src= gameInfo.img, style='height: 28vh;')
+        .prices
+          h2 Offers
+          ul.storePrices(style='list-style-type:none;')
+            li.storePrice.mr-5.my-3
+              img.storeIcon.steamIcon(src='/images/Stores/Steam.png', style='width:5vw;')
+              a.storeLink(href='/') Steam
+              a.price(href='/', style='float:right') $23.23
+            li.storePrice.mr-5.my-3
+              img.storeIcon.kinguinIcon(src='/images/Stores/Kinguin.png', style='width:5vw;')
+              a.storeLink(href='https://www.kinguin.net/?r=53343') Kinguin
+              a.price(href='https://www.kinguin.net/?r=53343', style='float:right') $21.30
+            li.storePrice.mr-5.my-3
+              img.storeIcon.g2aIcon(src='/images/Stores/G2A.png', style='width:5vw;')
+              a.storeLink(href='https://www.g2a.com/r/gamium') G2A
+              a.price(href='https://www.g2a.com/r/gamium', style='float:right') $19.92
+      .col-lg-6.px-0
+        h1.gameTitle= gameInfo.name
+        br
+        h3.gameDP Developer : #{gameInfo.dev}
+        br
+        h3.gameDP Publisher : #{gameInfo.publisher}
+        br
+        h3.gameDP Release Date : #{gameInfo.releaseDate}
+        br
+        p.gameDescription= gameInfo.desc
 
-    .prices
-      h2 Offers
-      ul.storePrices
-        li.storePrice
-          img.storeIcon.steamIcon(src='/images/Stores/Steam.png')
-          a.storeLink(href='/') Steam
-          a.price(href='/') $23.23
-        li.storePrice
-          img.storeIcon.kinguinIcon(src='/images/Stores/Kinguin.png')
-          a.storeLink(href='https://www.kinguin.net/?r=53343') Kinguin
-          a.price(href='https://www.kinguin.net/?r=53343') $21.30
-        li.storePrice
-          img.storeIcon.g2aIcon(src='/images/Stores/G2A.png')
-          a.storeLink(href='https://www.g2a.com/r/gamium') G2A
-          a.price(href='https://www.g2a.com/r/gamium') $19.92

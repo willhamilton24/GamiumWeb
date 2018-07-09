@@ -1,358 +1,75 @@
-body {
-  padding: 0px;
-  margin: 0px;
-  font-family: 'Open Sans', sans-serif;
-  background-color: #282828;
-  color: #28d693;
-}
-
-a {
-  color: #00B7FF;
-}
-
-.navbar {
-	margin: 0px;
-	padding: 0px;
-	height: 7vh;
-	background-color: #333333;
-	opacity: 0.9;
-	overflow: hidden;
-	position: fixed;
-	top: 0;
-	width: 100%;
-	z-index: 100;
-	border-bottom: 1px solid slategrey;
-}
-
-.logo {
-	display: inline-block;
-	height: 100%;
-	width: 20vh;
-	float: left
-}
-
-.faq {
-	float: right;
-	text-decoration: none;
+.nav-link {
 	color: #28d693;
-	padding-right: 2vw;
-	padding-left: 2vw;
-	padding-top: 2.3vh;
-	padding-bottom: 2.2vh;
-	font-size: 2vh;
-	font-weight: bold;
-	border-left: 1px solid #858585;
-}
-
-.search {
-	float: left;
-	margin-left: 40vh;
-	margin-top: 1.5vh;
-}
-
-.searchbar {
-	width: 28vw;
-	height: 4vh;
-	margin-top: 0vh;
-	padding-top: 0vh;
-	padding-left: 3vw;
-	background-color: #404040;
-	border: none;
-	outline: none;
 	font-size: 2vh;
 }
 
-.searchicon {
-	
+.active {
+	background-color: #28d693;
 }
 
-.searchbutton {
-	margin-top: 0vh;
-	height: 4vh;
-	width: 4vh;
-	border: none;
-	outline: none;
-	background-color: #282828;
-	position: absolute;
-}
-
-.dmz {
-	height: 9vh;
-}
-
-footer {
-	background-color: #333333;
-	height: 17vh;
-	opacity: 0.9;
-}
-
-footer ul {
-	list-style-type: none;
-}
-
-.footer-nav {
-	margin-left: 3vw;
-	margin-right: 0vh;
-	padding-top: 1vh;
-	display: inline-block;
-	float: left;
-	line-height: 4vh;
-}
-
-.socialbtn {
-	/*border: 0.5px solid #28d693;
-	border-radius: 3px;
-	margin-top: 0.5vh;
-	padding-right: 0.5vw;
-	padding-left: 0.5vw;*/
-}
-
-footer li a {
-	text-decoration: none;
-	color: #28d693;
-}
-
-.footer-search {
-	margin: 0vh;
-	margin-top: 5vh;
-	margin-left: 18vw;
-	float: left;
-}
-
-.sl {
-	margin-right: 8vw;
-}
-
-.socials {
-	font-size: 3vh;
-	float: right;
-}
-
-.socials img {
-	height: 3vh;
-	width: 3vh;
-}
-
-.copy {
-	padding: 0px;
-	margin: 0px;
-	display: block;
-	margin-top: 4vh; 
-	padding-top: 10vh;
-	text-align: center;
-	font-size: 2vh;
-	color: #424242;
-}
-
-.welcome {
-	text-align: center;
-	font-size: 4vh;
-}
-
-.games {
-	margin-top: 8vh;
-	margin-left: 18vw;
-	margin-right: 18vw;
-}
-
-.topSellersTitle {
-	font-size: 4vh;
-	ma
-}
-
-.tsl {
-	-webkit-columns: 8vw 2; /* Chrome, Safari, Opera */
-    -moz-columns: 8vw 2; /* Firefox */
-    columns: 8vw 2;
-    list-style-type: none;
-    text-decoration: none;
-}
-
-.listGame {
-	background-color: #404040;
-	width: 28vw;
-	margin-bottom: 5vh;
-	padding-bottom: 1vh;
-}
-
-.gameLink {
-	text-decoration: none;
-}
-
-.tsImg {
-	width: 28vw;
-}
-
-.tsInfo {
-	padding-left: 1vw;
-}
-
-.tsName {
-	display: inline;
-	font-size: 2.5vh;
-	color: #28d693;
-}
-
-.tsDev {
-	color: #28d693;
-	display: inline;
-	font-size: 1.5vh;
-}
-
-.tsPrice {
-	color: #28d693;
-	display: inline;
-	float: right;
-	margin: 0;
-	margin-right: 1vw;
-	font-size: 2vh
-}
-
-.game {
-	margin-left: 20vw;
-	margin-right: 20vw;
-	margin-top: 5vh;
-	margin-bottom: 20vh;
-}
-
-.gameInfo {
-	float: right;
-	width: 25vw;
+.mobileTitle {
+	display: none;
 }
 
 .gameImg {
-	width: 35vw;
+	margin-left: 6vh;
+	border: 1px solid #28d693;
 }
 
-.gameTitle {
-	float: left;
-	padding-left: 2vw;
-	display: block;
-}
-
-.gameDP {
-	display: block;
-	margin: 0px;
-	padding-left: 2vw;
-}
-
-.gameDescription {
-	padding-left: 2vw;
-}
-
-.storePrices {
-	list-style-type: none;
-	padding-left: 0;
-	width: 35vw;
+.prices {
+	margin-top: 5vh;
 }
 
 .storePrice {
-	background-color: #404040;
-	margin-bottom: 3vh;
 	height: 9vh;
-	border-radius: 9px;
-}
-
-.price {
-	text-decoration: none;
-	color: #28d693;
-	display: block;
-	float: right;
-	font-size: 3vh;
-	margin-top: 3vh;
-	margin-right: 2vw;
-}
-
-.storeIcon {
-	height: 5vh;
-	padding-left: 1vw;
-	margin-top: 2.5vh;
-	display: block;
-	float: left;
+	border: 1px solid #28d693;
+	border-radius: 10px;
 }
 
 .storeLink {
-	text-decoration: none;
+	margin-left: 2vh;
 	color: #28d693;
-	font-size: 2vh;
-	margin: 0px;
-	margin-top: 3.5vh;
-	margin-left: 1.5vw;
-	float: left;
 }
 
-
-
-@media only screen and (max-width: 450px) {
-    .searchbar {
-    	padding-left: 14vw;
-    }
+.storeIcon {
+	margin-left: 1vw;
+	margin-top: 1vh;
+	height: 7vh;
 }
 
-@media only screen and (max-width: 675px) {
-    .faq {
-    	display: none;
-    }
-
-    .tsl {
-		-webkit-columns: 50vw 1; /* Chrome, Safari, Opera */
-    	-moz-columns: 50vw 1; /* Firefox */
-    	columns: 50vw 1;
-    	margin-right: 25vw;
-    }
-
-    .listGame {
-    	width: 50vw;
-    }
-
-    .tsImg {
-    	width: 50vw;
-    }
-
-    .topSellersTitle {
-    	text-align: center;
-    }
-
+.price {
+	font-size: 3vh;
+	margin-top: 2vh;
+	margin-right: 2vw;
+	color: #28d693;
 }
 
-@media only screen and (max-width: 560px) {
-    .search {
-    	margin-left: 30vw;
-    }
-
-    footer .logo {
-    	display: none;
-    }
-
-    .fgBtn {
-    	display: none;
+@media only screen and (max-width: 991px) {
+    .mobileTitle {
+    	display: inline-block;
+    	padding-bottom: 3vh;
     }
 }
 
-@media only screen and (max-width: 915px) {
-	.searchbtn {
-		position: relative;
-	}
-
-	.searchbar {
-		padding-left: 6vw;
-	}
-    .footer-search {
+@media only screen and (max-width: 700px) {
+    .storeIcon {
     	display: none;
     }
 
-    .footer-nav {
-    	display: none;
-    }
-
-    .copy {
-    	margin-top: 6vh;
-    	padding-top: 7vh;
+    .storeLink {
+    	display: inline-block;
+		font-size: 3vh;
+		margin-top: 3vh;
     }
 }
 
-@media only screen and (max-width: 915px) {
-	.gameDescription {
-		display: none;
+@media only screen and (max-width: 580px) {
+    .gameInfoCnt {
+    	margin-left: 2vw;
+    }
+
+    .gameImg {
+    	margin-left: 0;
+		width: 100%;
 	}
 }

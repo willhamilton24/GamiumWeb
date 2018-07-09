@@ -2,65 +2,91 @@ extends layout
 
 block content
 
-  // h2.welcome Welcome To Gamium!
+  //.container.mb-4
+    //h1 Featured Games
+
+  #c.carousel.slide(data-ride='carousel')
+    ol.carousel-indicators
+      li.active(data-target="#c" data-slide-to="0")
+      li(data-target="#c" data-slide-to="1")
+      li(data-target="#c" data-slide-to="2")
+
+    .carousel-inner
+      .carousel-item.active
+        img.d-block.w-100(src= topSellers[0].img)
+        .carousel-caption.d-none.d-md-block.bg-dark(style='opacity:0.75; border-radius: 30px;')
+           h5= topSellers[0].name
+           button.btn.btn-outline-success Shop From #{topSellers[0].price}
+      .carousel-item
+        img.d-block.w-100(src= topSellers[1].img)
+        .carousel-caption.d-none.d-md-block.bg-dark(style='opacity:0.75; border-radius: 30px;')
+           h5= topSellers[1].name
+           button.btn.btn-outline-success Shop From #{topSellers[1].price}
+      .carousel-item
+        img.d-block.w-100(src= topSellers[2].img)
+        .carousel-caption.d-none.d-md-block.bg-dark(style='opacity:0.75; border-radius: 30px;')
+           h5= topSellers[2].name
+           button.btn.btn-outline-success Shop From #{topSellers[2].price}
+
+    a.carousel-control-prev(href="#c" role="button" data-slide="prev")
+      span.carousel-control-prev-icon(aria-hidden="true")
+      span.sr-only Previous
+
+    a.carousel-control-next(href="#c" role="button" data-slide="next")
+      span.carousel-control-next-icon(aria-hidden="true")
+      span.sr-only Previous
 
 
-  // Featured Games !!TODO!! Link Thumbs to Games
-  .slideshow-container
-
-    h1.fg Featured Games
-
-    // Slides - !!!TODO!!! Reformat into Jade Funtion
-    .mySlides.fade
-      .numbertext 1 / 3
-      img(src='images/featured/1.jpg', style='width:100%')
-      .fgInfo 
-        p.fgTitle= fg1.name 
-        a.fgBtn(href='/game') from #{fg1.price}
-
-    .mySlides.fade
-      .numbertext 2 / 3
-      img(src='images/featured/2.jpg', style='width:100%')
-      .fgInfo 
-        p.fgTitle= fg2.name
-        a.fgBtn(href='/') from #{fg2.price}
-
-    .mySlides.fade
-      .numbertext 3 / 3
-      img(src='images/featured/3.jpg', style='width:100%')
-      .fgInfo 
-        p.fgTitle= fg3.name
-        a.fgBtn(href='/') from #{fg3.price}
-
-    // Slideshow Buttons
-    // a.prev(onclick='plusSlides(-1)') &#10094;
-    // a.prev(onclick='plusSlides(1)') &#10095;
-
-  // Featured Game Slideshow Navigational Dots
-  // .slideshow-dots
-    // span.dot(onClick='currentSlide(1)')
-    // span.dot(onClick='currentSlide(2)')
-    // span.dot(onClick='currentSlide(3)')
-
-  // Slideshow Script
-  script(src='/javascripts/slideshow.js')
+   .container
+    .row
+     .col.col-md-6.col-xs-12
+        h1.mt-4(style='font-size:7vh;') Welcome to Gamium!
+        .card.my-5.bg-dark(style='border:1px solid #28d693;')
+          .card-header
+           h2 How To Use Gamium
+          .card-body
+            ol
+              li Search for a Game
+              li Compare Prices
+              li Choose Best Deal!
+      .col.col-md-5.col-xs-12
+        .card.my-5.bg-dark(style='border:1px solid #28d693;')
+          .card-header
+            h2 About Gamium
+          .card-body
+            p Gamium is a price agrigator for PC games. A price agrigator is a service that searches different vendors for the best price for an item (think Trivago or Expedia). When you search for a game, Gamium's price-finding algorithm gets real-time, up-to-date prices for the game from the Steam Store, G2A.com, and Kinguin.com. This saves you the time of going to each site individually and searching for the games price.
 
 
-  .games
+  .container(style='margin-top:6vh;')
+    h2 Browse Games
+    ul.nav.justify-content-center.nav-pills
+      li.nav-item
+        a.nav-link.active(href='/') Top Sellers
+      li.nav-item
+        a.nav-link(href='/') New Releases
+      li.nav-item
+        a.nav-link(href='/') Staff Picks
 
-    h2.topSellersTitle Top Sellers
+    .row
+     .col.col-lg-5.col-sm-12
+       ul.mt-4
+         - for (var i = 0; i < 4; i++)
+           li.card.mb-4(style='border: 1px solid #28d693; background-color: #333333;')
+             img.card-img-top(src=topSellers[i].img)
+             .card-body
+               h5.card-title= topSellers[i].name
+               p.card-text Developer: #{topSellers[i].dev}
+               a.btn(href='/', style='background-color:#28d693; color: #333333;') Shop From #{topSellers[i].price}
+     .col.col-lg-5.col-sm-12
+       ul.mt-4
+         - for (var i = 4; i < 8; i++)
+           li.card.mb-4(style='border: 1px solid #28d693; background-color: #333333;')
+             img.card-img-top(src=topSellers[i].img)
+             .card-body
+               h5.card-title= topSellers[i].name
+               p.card-text Developer: #{topSellers[i].dev}
+               a.btn(href='/', style='background-color:#28d693; color: #333333;') Shop From #{topSellers[i].price}
 
-    ul.tsl
-      each game in topSellers
-        li.listGame
-          a.gameLink(href='/')
-            img.tsImg(src= game.img)
-            .tsInfo
-              p.tsName= game.name
-              br
-              p.tsDev= game.dev
-              p.tsPrice= game.price
 
 
-  .homeAd
-  .homeAd
+       
