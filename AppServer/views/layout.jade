@@ -7,41 +7,44 @@ html
     link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.0.13/css/all.css')
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans')
+    link(href="https://fonts.googleapis.com/css?family=Play:400,700" rel="stylesheet")
     link(rel='stylesheet', href='/stylesheets/style.css')
 
-    script(async, src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
-    script(src='/javascripts/ads.js')
+    script(src='/angular/angular.min.js')
+
 
   body(style='background-color:#333333; color:#28d693;')
 
-    .navbar.navbar-default.bg-dark.sticky-top(style='opacity:0.85;')
+    .navbar.navbar-default.bg-dark.sticky-top.row(style='opacity:0.85;')
 
       a.navbar-brand.col-xs-12(href='/')
-        img(src='/images/Gamium.png' style='width:8vw;')
+        img.mx-5(src='/images/Gamium.png' style='width:100px;')
 
-      form.form-inline
-        button.btn.btn-outline-success.mr-2
+      form.form-inline.col-xs-12.mr-2(action="http://192.168.1.87:3000/sr" method='POST') 
+        button.btn.btn-outline-success.mr-2.searchBtn(type='submit')
           i.fa.fa-search
-        input.form-control(type='search' placeholder='Search for Game Deals' style='width:30vw; background-color:#333333;')
+        input.form-control.text-light.topSearch(type='search' name='search' placeholder='Search for Game Deals' style='width:30vw; background-color:#333333;')
 
 
     block content
 
-    .navbar.bg-dark.pt-3.row
+    .navbar.bg-dark.pt-3.row.wshFooter
       a.ml-2.pb-4(href='/')
         img(src='/images/Gamium.png' style='width:12vw;')
 
       .navbar-text
         p.text-muted.mb-0 &copy; Gamium Inc. 2018. All Rights Reserved
 
-      form.form-inline.mr-3.pb-4
-        button.btn.btn-outline-success.mr-2
+      form.form-inline.mr-3.pb-4(action="http://192.168.1.87:3000/sr" method='POST')
+        button.btn.btn-outline-success.mr-2.searchBtn(type='submit')
           i.fa.fa-search
-        input.form-control(type='search' placeholder='Search for Game Deals' style='width:30vw; background-color:#333333;')
+        input.form-control.text-light.bottomSearch(type='search' name='search' placeholder='Search for Game Deals' style='width:30vw; background-color:#333333;')
 
 
-
+    script(src='/angular/prices.js')
+    script(src='/angular/performSearch.js')
     script(src='/javascripts/jquery.js')
     script(src='/bootstrap/js/bootstrap.min.js')
+    
 
 

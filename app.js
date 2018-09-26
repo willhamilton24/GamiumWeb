@@ -4,9 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./AppServer/routes/index');
+//var fourOhFour = require('./AppServer/views/404.jade');
 
-require('./AppServer/models/db');
+require('./AppAPI/models/db');
+
+var indexRouter = require('./AppServer/routes/index');
+var apiRouter = require('./AppAPI/routes/index');
 
 var app = express();
 
@@ -21,10 +24,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+	res.render('404.jade', {});
+  //next(createError(404));
 });
 
 // error handler
@@ -37,5 +42,14 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+/*app.post('/sr', function(req, res) {
+	res.redirect("http://192.168.1.87:3000/search/" + encodeURIComponent(req.body.search));
+});
+
+app.listen(3000, function() {
+	console.log("Search Server Running on Port 3000")
+})*/
+
 
 module.exports = app;

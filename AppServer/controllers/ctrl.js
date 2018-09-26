@@ -1,74 +1,98 @@
-// GET Home Page
-module.exports.homepage = function(req, res) {
-	res.render('index', {
-		title: 'Home',
-		fg1: {
-			name: 'Counter Strike: Global Offensive',
-			price: '$15.00'
-		},
-		fg2: {
-			name: "PLAYERUNKNOWN'S BATTLEGROUNDS",
-			price: "$25.00"
-		},
-		fg3: {
-			name: "Portal",
-			price: "$9.99"
-		},
-		topSellers : [{
-				name: 'Counter Strike: Global Offensive',
-				dev: 'Valve',
-				price: '$15.00',
-				img: 'https://steamcdn-a.opskins.media/steam/apps/730/header.jpg?t=1529967656'
-			}, {
-				name: "PLAYERUNKNOWN'S BATTLEGROUNDS",
-				dev: "PLAYERUNKNOWN",
-				price: "$25.00",
-				img: 'https://steamcdn-a.opskins.media/steam/apps/578080/header.jpg?t=1530257691'
-			}, {
-				name: "Portal",
-				dev: "Valve",
-				price: "$10.00",
-				img: 'https://steamcdn-a.opskins.media/steam/apps/400/header.jpg?t=1529612311'
-			}, {
-				name: "7 Days to Die",
-				dev: "The Fun Pimps",
-				price: "$9.00",
-				img: "https://steamcdn-a.opskins.media/steam/apps/251570/header.jpg?t=1530012284"
-			}, {
-				name: "Bioshock Infinite",
-				dev: "Irrational Games",
-				price: "$7.50",
-				img: "https://steamcdn-a.opskins.media/steam/apps/8870/header.jpg?t=1530032961"
-			}, {
-				name: "Call of Duty: Black Ops II",
-				dev: "Treyarch",
-				price: "$24.99",
-				img: "https://steamcdn-a.opskins.media/steam/apps/202970/header.jpg?t=1530201257"
+const request = require('request');
+const mongoose = require('mongoose')
+const Nightmare = require('nightmare');
+nightmare = Nightmare();
 
-			}, {
-				name: "Deus Ex: Mankind Devided",
-				dev: "Square Enix",
-				price: "$19.99",
-				img: "https://steamcdn-a.opskins.media/steam/apps/337000/header.jpg?t=1530201264"
-			}, {
-				name: "Fallout 4",
-				dev: "Bethesda",
-				price: "$25.99",
-				img: "https://steamcdn-a.opskins.media/steam/apps/377160/header.jpg?t=1530109336"
-			}]
+// Dev Server
+var apiOptions = {
+	server : "http://192.168.1.87:3000"
+}
+
+// Production Server
+if (process.env.NODE_ENV === 'production') {
+	// apiOptions.server = Heroku Server
+}
+
+
+let renderHomepage = function(req, res, featuredGame) {
+	res.render('index', {
+		title: "Gamium"
 	});
 }
 
-module.exports.game = function(req, res) {
+let renderSearchResults = function(req, res, results) {
+	res.render('search', {
+		title: "Gamium",
+		searchResults: results
+	});
+}
+
+let renderGame = function(req, res, game, steamPrice) {
 	res.render('game', {
-		title: 'Counter Strike: Global Offensive',
+		title: game.name,
 		gameInfo: {
-			name: 'Counter Strike: Global Offensive',
-			dev: "Valve",
-			publisher: "Valve",
-			desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-			img: "https://steamcdn-a.opskins.media/steam/apps/730/header.jpg?t=1529967656",
-			releaseDate: "August 21, 2012"
+			name: game.name,
+			dev: game.dev,
+			publisher: game.publisher,
+			desc: game.description,
+			img: game.img,
+			releaseDate: game.rDate,
+			goglink: game.goglink,
+			id: game.appid
+		},
+		steam : steamPrice
+	});
+}
+
+
+// GET Home Page
+module.exports.homepage = function(req, res) {
+	renderHomepage(req, res);
+
+}
+
+// Search Redirect
+module.exports.sRedirect = function(req,res) {
+	console.log("Redirecting...");
+	res.redirect("http://192.168.1.87:3000/search/" + encodeURIComponent(req.body.search));
+}
+
+// GET Search Results
+module.exports.search = function(req, res) {
+	let path = '/api/s/' + req.params.query;
+	let requestOptions = {
+		url: apiOptions.server + path, 
+		method: "GET", 
+		json: {}
+	};
+
+	request(requestOptions, function(err, response, body) {
+		if (err) throw err;
+		renderSearchResults(req, res, body);
+	});
+
+
+}
+
+// GET Game
+module.exports.game = function(req, res) {
+
+	var path = '/api/games/' + req.params.appid;
+	var requestOptions = {
+		url: apiOptions.server + path, 
+		method: "GET", 
+		json: {}
+	};
+
+	request(requestOptions, function(err, response, body) {
+		if (req.params.appid.length < 10) {
+			request({ url: 'http://store.steampowered.com/api/appdetails?appids=' + req.params.appid , method: "GET", json: {} }, function(err, response, steamBody) {
+				if (steamBody[req.params.appid].data) { renderGame(req, res, body, "$" + steamBody[req.params.appid].data.price_overview.final / 100); } });
+		} else {
+			renderGame(req, res, body, "Not Sold Here")
 		}
-	})
+	});
+	
+	//console.log(sp);
+	
 }

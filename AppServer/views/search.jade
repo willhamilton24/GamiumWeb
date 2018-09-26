@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+
+  .container.my-5
+
+
+    h1.my-2 Search Results
+
+
+    each result in searchResults
+      .searchResult.my-3
+        - if (result.img) {
+          img.thumbnail(src='#{result.img}')
+        - } else {
+          img.thumbnail(src='/images/GOG.jpg')
+        - }
+        a(href='http://192.168.1.87:3000/game/#{result.appid}')= result.name
+
+        .rI
+          ul.resultInfo
+            li Release:  #{result.rDate}
+            li Developer: #{result.dev}
+            li Publisher: #{result.publisher}

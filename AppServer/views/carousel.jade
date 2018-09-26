@@ -1,0 +1,30 @@
+#c.carousel.slide(data-ride='carousel')
+    ol.carousel-indicators
+      li.active(data-target="#c" data-slide-to="0")
+      li(data-target="#c" data-slide-to="1")
+      li(data-target="#c" data-slide-to="2")
+
+    .carousel-inner
+      .carousel-item.active
+        img.d-block.w-100(src= topSellers[0].img)
+        .carousel-caption.d-none.d-md-block.bg-dark(style='opacity:0.75; border-radius: 30px;')
+           h5= topSellers[0].name
+           button.btn.btn-outline-success Shop From #{topSellers[0].price}
+      .carousel-item
+        img.d-block.w-100(src= topSellers[1].img)
+        .carousel-caption.d-none.d-md-block.bg-dark(style='opacity:0.75; border-radius: 30px;')
+           h5= topSellers[1].name
+           button.btn.btn-outline-success Shop From #{topSellers[1].price}
+      .carousel-item
+        img.d-block.w-100(src= topSellers[2].img)
+        .carousel-caption.d-none.d-md-block.bg-dark(style='opacity:0.75; border-radius: 30px;')
+           h5= topSellers[2].name
+           button.btn.btn-outline-success Shop From #{topSellers[2].price}
+
+    a.carousel-control-prev(href="#c" role="button" data-slide="prev")
+      span.carousel-control-prev-icon(aria-hidden="true")
+      span.sr-only Previous
+
+    a.carousel-control-next(href="#c" role="button" data-slide="next")
+      span.carousel-control-next-icon(aria-hidden="true")
+      span.sr-only Previous

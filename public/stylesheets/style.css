@@ -1,3 +1,17 @@
+body {
+	font-family: 'Play', sans-serif;
+}
+
+a {
+	color: #28d693;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #28d693;
+	text-decoration: none;
+}
+
 .nav-link {
 	color: #28d693;
 	font-size: 2vh;
@@ -11,43 +25,83 @@
 	display: none;
 }
 
-.gameImg {
-	margin-left: 6vh;
-	border: 1px solid #28d693;
+.descb {
+	max-width: 100%;
 }
 
-.prices {
-	margin-top: 5vh;
+.gameImg {
+	display: block;	
+	border-radius: 3px;
+	/*margin: 0 auto;
+	border: 1px solid #28d693;*/
 }
 
 .storePrice {
-	height: 9vh;
-	border: 1px solid #28d693;
-	border-radius: 10px;
+	height: 12vh;
 }
 
-.storeLink {
-	margin-left: 2vh;
-	color: #28d693;
+.gameDescription {
+	margin-bottom: 5vh;
 }
 
-.storeIcon {
-	margin-left: 1vw;
-	margin-top: 1vh;
-	height: 7vh;
+.gameDescription img {
+	max-width: 100%;
 }
 
-.price {
+.hsBtn {
+	height: 5vh;
+}
+
+.hsBar {
+	height: 5vh;
+}
+
+.quickEx {
+	font-size: 2vh;
+}
+
+.homepageLogo {
+	display: block;
+	width: 30vw;
+}
+
+.searchResult {
+	padding-bottom: 2vh;
+	border-bottom: 1px solid #28d693;
+}
+
+.searchResult a {
 	font-size: 3vh;
-	margin-top: 2vh;
-	margin-right: 2vw;
-	color: #28d693;
 }
+
+.rI {
+	float: right;
+}
+
+.resultInfo {
+	float: left;
+	list-style: none;
+}
+
+
+
+.thumbnail {
+	width: 20vw;
+	margin-right: 4vw;
+}
+
+
+
+
 
 @media only screen and (max-width: 991px) {
     .mobileTitle {
     	display: inline-block;
     	padding-bottom: 3vh;
+    }
+
+    .gameTitle {
+    	display: none;
     }
 }
 
@@ -56,10 +110,9 @@
     	display: none;
     }
 
-    .storeLink {
+   .storeLink {
     	display: inline-block;
-		font-size: 3vh;
-		margin-top: 3vh;
+		font-size: 6em;
     }
 }
 
@@ -71,5 +124,9 @@
     .gameImg {
     	margin-left: 0;
 		width: 100%;
+	}
+
+	.hsBtn {
+		margin-right: 0px;
 	}
 }

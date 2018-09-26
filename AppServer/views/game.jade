@@ -3,34 +3,43 @@ extends layout
 block content
 
 
-  .container.gameInfoCnt(style='margin-top: 7vh;')
+  .container.gameInfoCnt(style='margin-top: 3vh;')
     h1.mobileTitle= gameInfo.name
     .row
-      .col-lg-6.px-0
-        img.gameImg(src= gameInfo.img, style='height: 28vh;')
-        .prices
-          h2 Offers
-          ul.storePrices(style='list-style-type:none;')
-            li.storePrice.mr-5.my-3
-              img.storeIcon.steamIcon(src='/images/Stores/Steam.png', style='width:5vw;')
-              a.storeLink(href='/') Steam
-              a.price(href='/', style='float:right') $23.23
-            li.storePrice.mr-5.my-3
-              img.storeIcon.kinguinIcon(src='/images/Stores/Kinguin.png', style='width:5vw;')
-              a.storeLink(href='https://www.kinguin.net/?r=53343') Kinguin
-              a.price(href='https://www.kinguin.net/?r=53343', style='float:right') $21.30
-            li.storePrice.mr-5.my-3
-              img.storeIcon.g2aIcon(src='/images/Stores/G2A.png', style='width:5vw;')
-              a.storeLink(href='https://www.g2a.com/r/gamium') G2A
-              a.price(href='https://www.g2a.com/r/gamium', style='float:right') $19.92
-      .col-lg-6.px-0
-        h1.gameTitle= gameInfo.name
+      .col-lg-6.px-6.col-md-12
+        img.gameImg.mx-auto.mb-2(src= gameInfo.img, style='width: 100%;')
+        .prices.card.bg-dark.mb-6(ng-app='livePrices' ng-controller='getPrices')
+          .card-header(style='font-size:2vh;') Offers
+          ul.card-body.list-group-flush.p-0.mb-0(style='list-style-type:none;')
+            li.storePrice.list-group-item.bg-dark
+              img.storeIcon.steamIcon.pb-2(src='/images/Stores/Steam.png', style='width:5vw;')
+              a.storeLink.ml-3.pt-2(href='/' style='font-size:3vh;') Steam
+              a.price.mt-2(href='/', style='float:right; font-size:30px;')= steam
+            li.storePrice.list-group-item.bg-dark
+              img.storeIcon.steamIcon(src='/images/Stores/gog.png', style='width:5vw;')
+              a.storeLink.ml-3.mt-2(href='/' style='font-size:3vh;') GOG
+              a.price.mt-2(href='/', style='float:right; font-size:30px;') {{ gog }}
+            li.storePrice.list-group-item.bg-dark
+              img.storeIcon.steamIcon(src='/images/Stores/kinguin.png', style='width:5vw;')
+              a.storeLink.ml-3.mt-2(href='/' style='font-size:3vh;') Kinguin
+              a.price.mt-2(href='/', style='float:right; font-size:30px;') {{ gog }}
+            li.storePrice.list-group-item.bg-dark
+              img.storeIcon.steamIcon.mt-3(src='/images/Stores/G2A.png', style='width:5vw;')
+              a.storeLink.ml-3.mt-3(href='/' style='font-size:3vh;') G2A
+              a.price.mt-2(href='/', style='float:right; font-size:30px;') {{ gog }}
+          .card-footer(style='font-size: 2vh;') {{ bp }}
+        .twoSquareAds.row.mb-4
+          img.mt-5.col-sm-6.col-xs-12(src="http://placekitten.com/250/250")
+          img.mt-5.col-sm-6.col-xs-12(src="http://placekitten.com/250/250")
+      .col-lg-6.px-6.col-md-12
+        h1.gameTitle.font-weight-bold.mb-2= gameInfo.name
+        h5.gameDP Developer: #{gameInfo.dev}
+        h5.gameDP Publisher: #{gameInfo.publisher}
+        h5.gameDP Release Date: #{gameInfo.releaseDate}
         br
-        h3.gameDP Developer : #{gameInfo.dev}
-        br
-        h3.gameDP Publisher : #{gameInfo.publisher}
-        br
-        h3.gameDP Release Date : #{gameInfo.releaseDate}
-        br
-        p.gameDescription= gameInfo.desc
+        h5 Description:
+        .gameDescription!= gameInfo.desc
+        img.my-2.descb(src="http://placekitten.com/728/90")
+        img.my-2.descb(src="http://placekitten.com/728/90")
+        img.my-2.descb(src="http://placekitten.com/728/90")
 

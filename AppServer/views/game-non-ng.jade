@@ -1,0 +1,43 @@
+extends layout
+
+block content
+
+
+  .container.gameInfoCnt(style='margin-top: 7vh;')
+    h1.mobileTitle= gameInfo.name
+    .row
+      .col-lg-6.px-0
+        img.gameImg(src= gameInfo.img, style='height: 28vh;')
+        .prices(ng-app='livePrices')
+          h2 Offers
+          ul.storePrices(style='list-style-type:none;')
+            li.storePrice.mr-5.my-3
+              img.storeIcon.steamIcon(src='/images/Stores/Steam.png', style='width:5vw;')
+              a.storeLink(href='/') Steam
+              a.price(href='/', style='float:right')= costs.steam
+            li.storePrice.mr-5.my-3
+              img.storeIcon.kinguinIcon(src='/images/Stores/Kinguin.png', style='width:5vw;')
+              a.storeLink(href='https://www.kinguin.net/?r=53343') Kinguin
+              a.price(href='https://www.kinguin.net/?r=53343', style='float:right') $21.30
+            li.storePrice.mr-5.my-3
+              img.storeIcon.g2aIcon(src='/images/Stores/G2A.png', style='width:5vw;')
+              a.storeLink(href='https://www.g2a.com/r/gamium') G2A
+              a.price(href='https://www.g2a.com/r/gamium', style='float:right') $19.92
+            li.storePrice.mr-5.my-3
+              img.storeIcon.g2aIcon(src='/images/Stores/G2A.png', style='width:5vw;')
+              a.storeLink(href='https://www.g2a.com/r/gamium') GOG
+              a.price(href=gameInfo.goglink, style='float:right')= costs.gog
+      .col-lg-6.px-0
+        h1.gameTitle= gameInfo.name
+        br
+        h3.gameDP Developer : #{gameInfo.dev}
+        br
+        h3.gameDP Publisher : #{gameInfo.publisher}
+        br
+        h3.gameDP Release Date : #{gameInfo.releaseDate}
+        br
+        .gameDescription!= gameInfo.desc
+
+  script(src='/angular/angular.min.js')
+  script(src='/angular/prices.js')
+
