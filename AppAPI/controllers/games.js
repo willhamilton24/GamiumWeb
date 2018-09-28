@@ -99,6 +99,5 @@ module.exports.getGOGPrice = function(req,res) {
 			"message" : "No appid in request"
 		});
 	}
-
 	
 }

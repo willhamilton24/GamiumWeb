@@ -3,6 +3,10 @@ priceApp = angular.module('livePrices', []);
 var apiOptions = {
 	server : "http://192.168.1.87:3000"
 }
+// Production Server
+if (process.env.NODE_ENV === 'production') {
+	apiOptions.server = "https://lower-crown-69354.herokuapp.com/";
+}
 
 function bestPrice($scope) {
 	var prices = document.getElementsByClassName("price");

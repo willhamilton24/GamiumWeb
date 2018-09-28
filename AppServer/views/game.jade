@@ -13,8 +13,8 @@ block content
           ul.card-body.list-group-flush.p-0.mb-0(style='list-style-type:none;')
             li.storePrice.list-group-item.bg-dark
               img.storeIcon.steamIcon.pb-2(src='/images/Stores/Steam.png', style='width:5vw;')
-              a.storeLink.ml-3.pt-2(href='/' style='font-size:3vh;') Steam
-              a.price.mt-2(href='/', style='float:right; font-size:30px;')= steam
+              a.storeLink.ml-3.pt-2(href='https://store.steampowered.com/app/#{gameInfo.id}/' style='font-size:3vh;') Steam
+              a.price.mt-2(href="https://store.steampowered.com/app/#{gameInfo.id}", style='float:right; font-size:30px;')= steam
             li.storePrice.list-group-item.bg-dark
               img.storeIcon.steamIcon(src='/images/Stores/gog.png', style='width:5vw;')
               a.storeLink.ml-3.mt-2(href='/' style='font-size:3vh;') GOG

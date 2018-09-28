@@ -10,7 +10,7 @@ var apiOptions = {
 
 // Production Server
 if (process.env.NODE_ENV === 'production') {
-	// apiOptions.server = Heroku Server
+	apiOptions.server = "https://lower-crown-69354.herokuapp.com/";
 }
 
 
