@@ -7,6 +7,9 @@ const ctrl = require('../controllers/ctrl')
 // GET Homepage
 router.get('/', ctrl.homepage);
 
+// GET Bug Report
+router.get('/contact', ctrl.bugreport)
+
 // Search Redirect
 router.post('/sr', ctrl.sRedirect);
 

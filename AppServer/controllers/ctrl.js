@@ -8,14 +8,15 @@ var apiOptions = {
 	server : "http://192.168.1.87:3000"
 }
 
-// Production Server
-if (process.env.NODE_ENV === 'production') {
-	apiOptions.server = "https://lower-crown-69354.herokuapp.com/";
-}
-
 
 let renderHomepage = function(req, res, featuredGame) {
 	res.render('index', {
+		title: "Gamium"
+	});
+}
+
+let renderBugReport = function(req, res) {
+	res.render('contact', {
 		title: "Gamium"
 	});
 }
@@ -49,6 +50,11 @@ let renderGame = function(req, res, game, steamPrice) {
 module.exports.homepage = function(req, res) {
 	renderHomepage(req, res);
 
+}
+
+// GET Bug Report
+module.exports.bugreport = function(req, res) {
+	renderBugReport(req, res);
 }
 
 // Search Redirect
