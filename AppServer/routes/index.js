@@ -10,6 +10,9 @@ router.get('/', ctrl.homepage);
 // GET Bug Report
 router.get('/contact', ctrl.bugreport)
 
+// Send Email
+router.post('/sendemail', ctrl.sendcontactemail)
+
 // Search Redirect
 router.post('/sr', ctrl.sRedirect);
 

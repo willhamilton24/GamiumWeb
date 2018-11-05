@@ -1,7 +1,16 @@
 const request = require('request');
 const mongoose = require('mongoose')
+const nodemailer = require('nodemailer');
 const Nightmare = require('nightmare');
 nightmare = Nightmare();
+
+var transporter = nodemailer.createTransport({
+	service: 'gmail',
+	auth: {
+		user: 'gamiumcontact@gmail.com',
+		pass: 'SieSindDasEssan1967'
+	}
+});
 
 // Dev Server
 var apiOptions = {
@@ -55,6 +64,29 @@ module.exports.homepage = function(req, res) {
 // GET Bug Report
 module.exports.bugreport = function(req, res) {
 	renderBugReport(req, res);
+}
+
+// Send Email
+module.exports.sendcontactemail = function(req, res) {
+
+	res.redirect("http://192.168.1.87:3000/");
+	
+	var mailOptions = {
+		from: 'gamiumcontact@gmail.com',
+		to: 'gamiumcontact@gmail.com',
+		subject: req.body.name,
+		text: req.body.content
+	};
+
+	transporter.sendMail(mailOptions, function(error, info) {
+		if(error) {
+			console.log(error);
+		} else {
+			console.log("Email Sent: " + info.response);
+		}
+	});
+
+
 }
 
 // Search Redirect
