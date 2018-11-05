@@ -88,7 +88,7 @@ module.exports.getGOGPrice = function(req,res) {
 				console.log('Scrapeing...');
 				let nightmare = Nightmare();
 				nightmare.goto(game.goglink).wait(2000).evaluate(function() {
-					gogPrice = document.getElementsByClassName("_price")[3].innerHTML;
+					gogPrice = document.getElementsByClassName("product-actions-price__final-amount")[0].innerHTML;
 					return "$" + gogPrice;
 				}).end().then(function(result) {
 					sendJsonResponse(res, 200, result);

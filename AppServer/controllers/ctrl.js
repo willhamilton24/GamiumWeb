@@ -14,7 +14,7 @@ var transporter = nodemailer.createTransport({
 
 // Dev Server
 var apiOptions = {
-	server : "http://192.168.1.87:3000"
+	server : "http://hamiltondynamic.tk"
 }
 
 
@@ -69,7 +69,7 @@ module.exports.bugreport = function(req, res) {
 // Send Email
 module.exports.sendcontactemail = function(req, res) {
 
-	res.redirect("http://192.168.1.87:3000/");
+	res.redirect("http://hamiltondynamic.tk/");
 	
 	var mailOptions = {
 		from: 'gamiumcontact@gmail.com',
@@ -92,7 +92,7 @@ module.exports.sendcontactemail = function(req, res) {
 // Search Redirect
 module.exports.sRedirect = function(req,res) {
 	console.log("Redirecting...");
-	res.redirect("http://192.168.1.87:3000/search/" + encodeURIComponent(req.body.search));
+	res.redirect("http://hamiltondynamic.tk/search/" + encodeURIComponent(req.body.search));
 }
 
 // GET Search Results

@@ -1,21 +1,21 @@
 priceApp = angular.module('livePrices', []);
 
 var apiOptions = {
-	server : "http://192.168.1.87:3000"
-}
-// Production Server
-if (process.env.NODE_ENV === 'production') {
-	apiOptions.server = "https://lower-crown-69354.herokuapp.com/";
+	server : "http://hamiltondynamic.tk"
 }
 
 function bestPrice($scope) {
+
+	console.log("Finding best price...");
+
 	var prices = document.getElementsByClassName("price");
 	var stores = document.getElementsByClassName("storeLink");
 
 	let bestPrice = parseFloat(prices[0].innerHTML.replace('$', ''));
 	let bestStore = stores[0].innerHTML;
 
-	for (i = 0; i < 2; i++) { //Adjust for new prices
+	for (i = 0; i < 3; i++) { //Adjust for new prices
+		console.log(parseFloat(prices[i].innerHTML.replace('$', '')));
 		if (parseFloat(prices[i].innerHTML.replace('$', '')) <= bestPrice && parseFloat(prices[i].innerHTML) != 'NaN') {
 			bestPrice = parseFloat(prices[i].innerHTML.replace('$', ''));
 			bestStore = stores[i].innerHTML;
@@ -23,6 +23,7 @@ function bestPrice($scope) {
 	}
 
 	$scope.bp = "Best Price: $" + bestPrice + " from " + bestStore;
+	console.log($scope.bp);
 }
 
 priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
