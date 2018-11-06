@@ -38,11 +38,11 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 
 	var name = document.getElementsByTagName("h1")[0].innerHTML.replace(/\s+/g, 'shpashe');
 
-	$http.get('http://localhost:3000/api/gamesname/' + name).then(function(gameData) {
+	$http.get('http://localhost:80/api/gamesname/' + name).then(function(gameData) {
 		console.log(gameData.data);
 		var id = gameData.data.appid;
 		if(gameData.data.goglink) {
-			$http.get('http://localhost:3000/api/gog/' + id).then(function(gogData) {
+			$http.get('http://localhost:80/api/gog/' + id).then(function(gogData) {
 				var pricesLoaded = new Promise(function(resolve, reject) {
 					console.log('GOG done');
 					$scope.gog = gogData.data;	
