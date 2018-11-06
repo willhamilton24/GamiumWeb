@@ -15,6 +15,7 @@
     "morgan": "~1.9.0",
     "nightmare": "^3.0.1",
     "request": "^2.87.0",
-    "nodemailer": "~4.6.8"
+    "nodemailer": "~4.6.8",
+    "electron": ">=1.8.8"
   }
 }
