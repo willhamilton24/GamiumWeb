@@ -45,7 +45,7 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 	$http.get(apiOptions.server + '/api/gamesname/' + name).then(function(gameData) {
 		console.log(gameData.data);
 		var id = gameData.data.appid;
-		if(gameData.data.goglink) {
+		//if(gameData.data.goglink) {
 			$http.get(apiOptions.server + '/api/gog/' + id).then(function(gogData) {
 				var pricesLoaded = new Promise(function(resolve, reject) {
 					console.log('GOG done');
@@ -67,9 +67,9 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 				})
 
 			});
-		} else {
-			$scope.gog = "Not Sold Here";
-		}
+		//} else {
+		//	$scope.gog = "Not Sold Here";
+		//}
 	});
 
 
