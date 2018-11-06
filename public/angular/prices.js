@@ -1,9 +1,5 @@
 priceApp = angular.module('livePrices', []);
 
-var apiOptions = {
-	server : "hamiltondynamic.tk"
-}
-
 function bestPrice() {
 
 	//$scope.$apply(function(){
@@ -42,11 +38,11 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 
 	var name = document.getElementsByTagName("h1")[0].innerHTML.replace(/\s+/g, 'shpashe');
 
-	$http.get('hamiltondynamic.tk/api/gamesname/' + name).then(function(gameData) {
+	$http.get('http://hamiltondynamic.tk/api/gamesname/' + name).then(function(gameData) {
 		console.log(gameData.data);
 		var id = gameData.data.appid;
 		if(gameData.data.goglink) {
-			$http.get(apiOptions.server + '/api/gog/' + id).then(function(gogData) {
+			$http.get('http://hamiltondynamic.tk/api/gog/' + id).then(function(gogData) {
 				var pricesLoaded = new Promise(function(resolve, reject) {
 					console.log('GOG done');
 					$scope.gog = gogData.data;	
