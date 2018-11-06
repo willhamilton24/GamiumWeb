@@ -69,7 +69,7 @@ module.exports.bugreport = function(req, res) {
 // Send Email
 module.exports.sendcontactemail = function(req, res) {
 
-	res.redirect("http://hamiltondynamic.tk/");
+	res.redirect(apiOptions.server);
 	
 	var mailOptions = {
 		from: 'gamiumcontact@gmail.com',
@@ -92,7 +92,7 @@ module.exports.sendcontactemail = function(req, res) {
 // Search Redirect
 module.exports.sRedirect = function(req,res) {
 	console.log("Redirecting...");
-	res.redirect("http://hamiltondynamic.tk/search/" + encodeURIComponent(req.body.search));
+	res.redirect(apiOptions.server + "/search/" + encodeURIComponent(req.body.search));
 }
 
 // GET Search Results

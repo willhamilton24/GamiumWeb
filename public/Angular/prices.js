@@ -4,7 +4,9 @@ var apiOptions = {
 	server : "http://hamiltondynamic.tk"
 }
 
-function bestPrice($scope) {
+function bestPrice() {
+
+	//$scope.$apply(function(){
 
 	console.log("Finding best price...");
 
@@ -14,21 +16,25 @@ function bestPrice($scope) {
 	let bestPrice = parseFloat(prices[0].innerHTML.replace('$', ''));
 	let bestStore = stores[0].innerHTML;
 
-	for (i = 0; i < 3; i++) { //Adjust for new prices
-		console.log(parseFloat(prices[i].innerHTML.replace('$', '')));
+	for (i = 0; i < 4; i++) { //Adjust for new prices
+		console.log(prices[i].innerHTML.replace('$', ''));
 		if (parseFloat(prices[i].innerHTML.replace('$', '')) <= bestPrice && parseFloat(prices[i].innerHTML) != 'NaN') {
 			bestPrice = parseFloat(prices[i].innerHTML.replace('$', ''));
 			bestStore = stores[i].innerHTML;
 		}
 	}
 
-	$scope.bp = "Best Price: $" + bestPrice + " from " + bestStore;
-	console.log($scope.bp);
+	return "Best Price: $" + bestPrice + " from " + bestStore;
+
+	//});
+	
 }
 
 priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 
-	bestPrice($scope);
+	//bestPrice($scope);
+
+	$scope.bp = "Getting prices...";
 
 	$scope.gog = "Getting Price...";
 	$scope.kinguin = 'Price Data Not Yet Available';
@@ -41,9 +47,25 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 		var id = gameData.data.appid;
 		if(gameData.data.goglink) {
 			$http.get(apiOptions.server + '/api/gog/' + id).then(function(gogData) {
-				console.log('GOG done');
-				$scope.gog = gogData.data;
-				bestPrice($scope);
+				var pricesLoaded = new Promise(function(resolve, reject) {
+					console.log('GOG done');
+					$scope.gog = gogData.data;	
+					
+					if($scope.gog == gogData.data) {
+						resolve("Loaded")
+					} else {
+						reject("Error");
+					}
+				});
+
+				pricesLoaded.then(function(result) {
+					console.log(result); 
+					
+					$scope.$apply(function() {
+						$scope.bp = bestPrice();
+					});
+				})
+
 			});
 		} else {
 			$scope.gog = "Not Sold Here";
