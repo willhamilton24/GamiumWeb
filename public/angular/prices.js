@@ -43,7 +43,8 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 		var id = gameData.data.appid;
 		if(gameData.data.goglink) {
 			console.log("starting price finding");
-			$http.get('http://hamiltondynamic.tk/api/gog/' + id).then(function(gogData) {
+			$http.get('http://63.209.35.65:3000/api/gog/' + id).then(function(gogData) {
+				console.log("gotten");
 				var pricesLoaded = new Promise(function(resolve, reject) {
 					console.log('GOG done');
 					$scope.gog = gogData.data;	
