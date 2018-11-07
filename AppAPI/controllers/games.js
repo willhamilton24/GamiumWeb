@@ -76,7 +76,7 @@ module.exports.getGOGPrice = function(req,res) {
 	if(req.params && req.params.appid) {
 		G.findOne({'appid' : req.params.appid})
 			.exec(function(err, game) {
-				if (err) { throw err };
+				if (err) { sendJsonResponse(err) };
 				if(!game) {
 					sendJsonResponse(res, 404, {
 						"message": "game id not found"
