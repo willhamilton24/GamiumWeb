@@ -78,7 +78,7 @@ module.exports.getGOGPrice = function(req,res) {
 		G.findOne({'appid' : req.params.appid})
 			.exec(function(err, game) {
 				if (err) { throw err };
-				console.log(game.name)
+				//console.log(game.name)
 				if(!game) {
 					sendJsonResponse(res, 404, {
 						"message": "game id not found"
