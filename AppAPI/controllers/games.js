@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Nightmare = require('nightmare');
+const https = require('https');
 
 var G = mongoose.model('game');
 
@@ -87,14 +88,26 @@ module.exports.getGOGPrice = function(req,res) {
 					return;
 				}
 				console.log('Scrapeing...');
-				let nightmare = Nightmare();
-				nightmare.goto(game.goglink).wait(2000).evaluate(function() {
-					gogPrice = document.getElementsByClassName("product-actions-price__final-amount")[0].innerHTML;
-					return "$" + gogPrice;
+				https.get(game["gog-price"].replace("{country}", "US"), (resp) => {
+					let data = '';
+
+					resp.on('data', (chunk) => {
+						data += chunk;
+					});
+
+					resp.on('end', () => {
+						price = JSON.parse(data)._embedded.price.finalPrice;
+						p1 = price.substring(price.length - 1);
+						p2 = price.substring(0, price.length - 2);
+						return "$" + p1 + "." + p2;
+					});
+				}).on('error', (err) => {
+					return "ERROR: " + err.message;
+				});
+				
 				}).end().then(function(result) {
 					sendJsonResponse(res, 200, result);
 				});
-			});
 	} else {
 		sendJsonResponse(res, 404, {
 			"message" : "No appid in request"
