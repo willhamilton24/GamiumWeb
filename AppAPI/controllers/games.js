@@ -75,8 +75,11 @@ module.exports.getSearchResults = function(req, res) {
 
 module.exports.getGOGPrice = function(req,res) {
 	if(req.params && req.params.appid) {
-		G.findOne({'appid' : req.params.appid})
-			.exec(function(err, game) {
+		
+
+		var findGame = new Promise(function(resolve, reject) {
+			var price;
+			G.findOne({'appid' : req.params.appid}, function(err, game) {
 				if (err) { throw err };
 				//console.log(game.name)
 				if(!game) {
@@ -88,8 +91,8 @@ module.exports.getGOGPrice = function(req,res) {
 					sendJsonResponse(res, 404, err)
 					return;
 				}
-				console.log('Scrapeing...');
-				https.get(game["gog-price"].replace("{country}", "US"), (resp) => {
+				game = JSON.parse(JSON.stringify(game));
+				https.get(game.gogPrice.replace("{country}", "US"), (resp) => {
 					let data = '';
 
 					resp.on('data', (chunk) => {
@@ -97,22 +100,28 @@ module.exports.getGOGPrice = function(req,res) {
 					});
 
 					resp.on('end', () => {
-						price = JSON.parse(data)._embedded.price.finalPrice;
-						p1 = price.substring(price.length - 1);
-						p2 = price.substring(0, price.length - 2);
-						return "$" + p1 + "." + p2;
+						console.log(JSON.parse(data)._embedded.prices);
+						price = JSON.parse(data)._embedded.prices[0].finalPrice.replace(' USD', '');
+						var p1 = price.substring(0, price.length - 2);
+						var p2 = price.substring(price.length - 2);
+						price = "$" + p1 + "." + p2
+						console.log(price);
+						resolve(price);
 					});
 				}).on('error', (err) => {
 					return "ERROR: " + err.message;
 				});
 				
-				}).end().then(function(result) {
-					sendJsonResponse(res, 200, result);
-				});
+				
+			})
+		});
+
+		findGame.then((result) => {
+			sendJsonResponse(res, 200, result);
+		});
 	} else {
 		sendJsonResponse(res, 404, {
 			"message" : "No appid in request"
 		});
-	}
-	
+	}	
 }
