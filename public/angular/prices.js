@@ -36,12 +36,12 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 	$scope.kinguin = 'Price Data Not Yet Available';
 	$scope.g2a = 'Price Data Not Yet Available';
 
-	var name = document.getElementsByTagName("h1")[0].innerHTML.replace(/\s+/g, 'shpashe');
+	var name = encodeURIComponent(document.getElementsByTagName("h1")[0].innerHTML.replace('&amp;', '&'));
 
 	$http.get('http://hamiltondynamic.tk/api/gamesname/' + name).then(function(gameData) {
 		console.log(gameData.data);
 		var id = gameData.data.appid;
-		if(gameData.data.goglink) {
+		if(gameData.data.gogprice) {
 			console.log("starting price finding");
 			$http.get('http://hamiltondynamic.tk/api/gog/' + id).then(function(gogData) {
 				console.log("gotten");

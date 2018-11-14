@@ -39,8 +39,8 @@ module.exports.readOneGame = function(req,res) {
 
 module.exports.readOneGameByName = function(req,res) {
 	if(req.params && req.params.name) {
-		console.log(req.params.name.replace(/shpashe/g, ' '));
-		G.findOne({'name' : req.params.name.replace(/shpashe/g, ' ')})
+		console.log(decodeURIComponent(req.params.name));
+		G.findOne({'name' : decodeURIComponent(req.params.name)})
 			.exec(function(err, game) {
 				if(!game) {
 					sendJsonResponse(res, 404, {
@@ -92,7 +92,7 @@ module.exports.getGOGPrice = function(req,res) {
 					return;
 				}
 				game = JSON.parse(JSON.stringify(game));
-				https.get(game.gogPrice.replace("{country}", "US"), (resp) => {
+				https.get(game.gogprice.replace("{country}", "US"), (resp) => {
 					let data = '';
 
 					resp.on('data', (chunk) => {
