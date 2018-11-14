@@ -125,7 +125,6 @@ module.exports.game = function(req, res) {
 	request(requestOptions, function(err, response, body) {
 		if (req.params.appid.length < 10) {
 			request({ url: 'http://store.steampowered.com/api/appdetails?appids=' + req.params.appid , method: "GET", json: {} }, function(err, response, steamBody) {
-				if (err) throw err;
 				if (steamBody[req.params.appid].data) { renderGame(req, res, body, "$" + steamBody[req.params.appid].data.price_overview.final / 100); } });
 		} else {
 			renderGame(req, res, body, "Not Sold Here")
