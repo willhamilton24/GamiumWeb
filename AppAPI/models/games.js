@@ -54,7 +54,5 @@ var gameSchema = new mongoose.Schema({
 
 });
 
-gameSchema.index( {name: 'text'} )
-
 var G = mongoose.model('game', gameSchema);
 
