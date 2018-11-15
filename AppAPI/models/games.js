@@ -41,11 +41,11 @@ var gameSchema = new mongoose.Schema({
 		type: String,
 		required: false
 	},
-	gog-link: {
+	"gog-link": {
 		type: String,
 		required: false
 	},
-	gog-price: {
+	"gog-price": {
 		type: String,
 		required: false
 	},
