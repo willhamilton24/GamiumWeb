@@ -33,6 +33,25 @@ var gameSchema = new mongoose.Schema({
 		type: String,
 		required: false
 	},
+	gogprice: {
+		type: String,
+		required: false
+	},
+	gogPrice: {
+		type: String,
+		required: false
+	},
+	gog-link: {
+		type: String,
+		required: false
+	},
+	gog-price: {
+		type: String,
+		required: false
+	},
+
+
+
 });
 
 gameSchema.index( {name: 'text'} )
