@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const Nightmare = require('nightmare');
 const https = require('https');
-const gameModel = require('../models/games.js');
+
+var G = mongoose.model('game');
 
 //class Nightmare {
 //	static getNewNightmare() {

@@ -3,9 +3,6 @@ var mongoose = require('mongoose');
 require('./games');
 
 var dbURI = 'mongodb://localhost:27017/gamium';
-if(process.env.NODE_ENV === 'production') {
-	//dbURI = Production DB
-}
 
 var gracefulShutdown = function(msg, callback) {
 	mongoose.connection.close(function () {
