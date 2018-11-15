@@ -17,6 +17,8 @@ var sendJsonResponse = function(res, status, content) {
 
 module.exports.readOneGame = function(req,res) {
 	if(req.params && req.params.appid) {
+		console.log(req.params.appid);
+		console.log(req.params.appid.type);
 		G.findOne({"appid" : "'" + req.params.appid.toString() + "'"})
 			.exec(function(err, game) {
 				if(!game) {
