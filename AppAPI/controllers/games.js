@@ -19,7 +19,7 @@ module.exports.readOneGame = function(req,res) {
 	if(req.params && req.params.appid) {
 		console.log(req.params.appid);
 		console.log(typeof req.params.appid);
-		G.findOne({"appid" : "'" + req.params.appid.toString() + "'"})
+		G.find({"appid" : req.params.appid})
 			.exec(function(err, game) {
 				if(!game) {
 					sendJsonResponse(res, 404, {
