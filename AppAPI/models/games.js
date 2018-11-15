@@ -6,7 +6,7 @@ var gameSchema = new mongoose.Schema({
 		required: true
 	},
 	appid: {
-		type: Number,
+		type: String,
 		required: false
 	},
 	img: {
@@ -56,5 +56,5 @@ var gameSchema = new mongoose.Schema({
 
 gameSchema.index( {name: 'text'} )
 
-mongoose.model('game', gameSchema);
+var G = mongoose.model('game', gameSchema);
 
