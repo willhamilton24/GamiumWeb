@@ -13,12 +13,12 @@ module.exports.readOneGame = function(req,res) {
 	if(req.params && req.params.appid) {
 		console.log(req.params.appid);
 		console.log(typeof req.params.appid);
-		mongoose.model('game').findOne({"appid" : parseInt(req.params.appid) }, function(err, game) {
+		G.findOne({ "appid" : req.params.appid }, function(err, game) {
 				console.log(err);
 				console.log(game);
 				if(!game) {
 					sendJsonResponse(res, 404, {
-						"message": "game id not found"
+						"message": "game id not found ID: " + req.params.appid
 					});
 					return;
 				} else if(err) {
@@ -150,10 +150,10 @@ module.exports.getKinguinPrice = function(req,res) {
 				} else {
 					data = JSON.parse(data);
 
-					price = data.price * 1.13;
+					price = data.price * 1.15;
 					price = price.toString();
 					if(parseInt(price.length) > 1) {
-						price = price.substring(0,5);
+						price = price.substring(0,4);
 						sendJsonResponse(res, 200, { "price": "$" + price});
 					} else {
 						price = price.substring(0,3);

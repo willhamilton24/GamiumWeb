@@ -6,7 +6,7 @@ var gameSchema = new mongoose.Schema({
 		required: true
 	},
 	appid: {
-		type: Number,
+		type: String,
 		required: false
 	},
 	img: {

@@ -65,10 +65,11 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 						$scope.bp = bestPrice();
 					});
 
-					if(gameData.data.kID) {
+					if(gameData.data.kinguinID) {
 
 						var kinguinPrice = new Promise(function(resolve, reject){
-							$http.get('http://hamiltondynamic.tk/api/kinguin/' + gameData.data.kID).then(function(kinguinData){
+							console.log("Getting Kinguin Price...")
+							$http.get('http://hamiltondynamic.tk/api/kinguin/' + gameData.data.kinguinID).then(function(kinguinData){
 								console.log(kinguinData);
 								$scope.kinguin = kinguinData.data.price;
 
@@ -95,10 +96,10 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 		} else {
 			$scope.gog = "Not Sold Here";
 
-			if(gameData.data.kID) {
+			if(gameData.data.kinguinID) {
 
 				var kinguinPrice = new Promise(function(resolve, reject){
-					$http.get('http://hamiltondynamic.tk/api/kinguin/' + gameData.data.kID).then(function(kinguinData){
+					$http.get('http://hamiltondynamic.tk/api/kinguin/' + gameData.data.kinguinID).then(function(kinguinData){
 						console.log(kinguinData);
 						$scope.kinguin = kinguinData.data.price;
 

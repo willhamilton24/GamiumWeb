@@ -38,6 +38,7 @@ let renderSearchResults = function(req, res, results) {
 }
 
 let renderGame = function(req, res, game, steamPrice) {
+	console.log(game);
 	res.render('game', {
 		title: game.name,
 		gameInfo: {
