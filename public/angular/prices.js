@@ -26,14 +26,16 @@ function bestPrice() {
 	
 }
 
+
 priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 
-	//bestPrice($scope);
+	
+
 
 	$scope.bp = "Getting prices...";
 
 	$scope.gog = "Getting Price...";
-	$scope.kinguin = 'Price Data Not Yet Available';
+	$scope.kinguin = 'Getting Price...';
 	$scope.g2a = 'Price Data Not Yet Available';
 
 	var name = encodeURIComponent(document.getElementsByTagName("h1")[0].innerHTML.replace('&amp;', '&'));
@@ -62,11 +64,61 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 					$scope.$apply(function() {
 						$scope.bp = bestPrice();
 					});
-				})
+
+					if(gameData.data.kID) {
+
+						var kinguinPrice = new Promise(function(resolve, reject){
+							$http.get('http://hamiltondynamic.tk/api/kinguin/' + gameData.data.kID).then(function(kinguinData){
+								console.log(kinguinData);
+								$scope.kinguin = kinguinData.data.price;
+
+								if($scope.kinguin == kinguinData.data.price) {
+									resolve("Loaded");
+								} else {
+									reject("Error");
+								}
+							});
+						});
+
+						kinguinPrice.then(function(kResult) {
+							console.log(kResult);
+
+							$scope.$apply(function() {
+								$scope.bp = bestPrice();
+							});
+
+						});
+					}
+				});
 
 			});
 		} else {
 			$scope.gog = "Not Sold Here";
+
+			if(gameData.data.kID) {
+
+				var kinguinPrice = new Promise(function(resolve, reject){
+					$http.get('http://hamiltondynamic.tk/api/kinguin/' + gameData.data.kID).then(function(kinguinData){
+						console.log(kinguinData);
+						$scope.kinguin = kinguinData.data.price;
+
+						if($scope.kinguin == kinguinData.data.price) {
+							resolve("Loaded");
+						} else {
+							reject("Error");
+						}
+					});
+				});
+
+				kinguinPrice.then(function(kResult) {
+					console.log(kResult);
+
+					$scope.$apply(function() {
+							$scope.bp = bestPrice();
+					});
+
+				});
+			}
 		}
 	});
 

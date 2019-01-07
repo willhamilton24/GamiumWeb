@@ -11,6 +11,9 @@ router.get('/gamesname/:name', ctrlGames.readOneGameByName);
 //Get GOG Price For a Game
 router.get('/gog/:appid', ctrlGames.getGOGPrice);
 
+//Get Kinguin Price For a Game
+router.get('/kinguin/:kid', ctrlGames.getKinguinPrice);
+
 //Get Search Results
 router.get('/s/:query', ctrlGames.getSearchResults);
 

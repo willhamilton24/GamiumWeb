@@ -8,14 +8,14 @@
   "dependencies": {
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
-    "express": "~4.16.0",
-    "http-errors": "*",
+    "electron": "^3.0.9",
+    "express": "^4.16.4",
+    "http-errors": "^1.7.1",
     "jade": "~1.11.0",
     "mongoose": "~5.1.7",
-    "morgan": "~1.9.0",
+    "morgan": "^1.9.1",
     "nightmare": "^3.0.1",
-    "request": "^2.87.0",
     "nodemailer": "~4.6.8",
-    "electron": ">=1.8.8"
+    "request": "^2.88.0"
   }
 }

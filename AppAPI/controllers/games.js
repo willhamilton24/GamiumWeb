@@ -4,12 +4,6 @@ const https = require('https');
 
 var G = mongoose.model('game');
 
-//class Nightmare {
-//	static getNewNightmare() {
-//		return initNightmare();
-//	}
-//}
-
 var sendJsonResponse = function(res, status, content) {
 	res.status(status);
 	res.json(content);
@@ -19,8 +13,9 @@ module.exports.readOneGame = function(req,res) {
 	if(req.params && req.params.appid) {
 		console.log(req.params.appid);
 		console.log(typeof req.params.appid);
-		G.findOne({"appid" : req.params.appid})
-			.exec(function(err, game) {
+		mongoose.model('game').findOne({"appid" : parseInt(req.params.appid) }, function(err, game) {
+				console.log(err);
+				console.log(game);
 				if(!game) {
 					sendJsonResponse(res, 404, {
 						"message": "game id not found"
@@ -126,4 +121,58 @@ module.exports.getGOGPrice = function(req,res) {
 			"message" : "No appid in request"
 		});
 	}	
+}
+
+module.exports.getKinguinPrice = function(req,res) {
+	const options = {
+		protocol: 'https:',
+    	hostname: 'api2.kinguin.net',
+    	path: '/integration/v1/products/' + req.params.kid,
+    	headers: {
+       		"api-ecommerce-auth": '5327d6c9b3214d7a94f81b5531d6a54d'
+    	}
+	}
+
+	var price;
+
+	var makeRequest = function() {
+
+		https.get(options, (resp) => {
+			let data = '';
+
+			resp.on('data', (chunk) => {
+				data += chunk;
+			});
+
+			resp.on('end', () => {
+				if (data.charAt(0) == '<') {
+					module.exports.getKinguinPrice(req, res);
+				} else {
+					data = JSON.parse(data);
+
+					price = data.price * 1.13;
+					price = price.toString();
+					if(parseInt(price.length) > 1) {
+						price = price.substring(0,5);
+						sendJsonResponse(res, 200, { "price": "$" + price});
+					} else {
+						price = price.substring(0,3);
+						sendJsonResponse(res, 200, { "price": "$" + price});
+					}
+				
+				}
+			});
+
+		});
+	}
+
+	var tryCatchRequest = function() {
+		try {
+			makeRequest();
+		} catch (e) {
+			tryCatchRequest();
+		}
+	}
+
+	tryCatchRequest();
 }
