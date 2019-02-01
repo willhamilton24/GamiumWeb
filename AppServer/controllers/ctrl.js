@@ -38,7 +38,7 @@ let renderSearchResults = function(req, res, results) {
 }
 
 let renderGame = function(req, res, game, steamPrice) {
-	console.log(game);
+	console.log(game)
 	res.render('game', {
 		title: game.name,
 		gameInfo: {
@@ -73,7 +73,7 @@ module.exports.sendcontactemail = function(req, res) {
 	res.redirect(apiOptions.server);
 	
 	var mailOptions = {
-		from: 'gamiumcontact@gmail.com',
+		from: 'gamiumcontact@gmail.com' ,
 		to: 'gamiumcontact@gmail.com',
 		subject: req.body.name,
 		text: req.body.content
