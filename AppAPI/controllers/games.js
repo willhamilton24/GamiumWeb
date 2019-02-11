@@ -13,7 +13,7 @@ module.exports.readOneGame = function(req,res) {
 	if(req.params && req.params.appid) {
 		console.log(req.params.appid);
 		console.log(typeof req.params.appid);
-		G.findOne({ "appid" : req.params.appid }, function(err, game) {
+		G.findOne({ "appid" : parseInt(req.params.appid) }, function(err, game) {
 				console.log(err);
 				console.log(game);
 				if(!game) {

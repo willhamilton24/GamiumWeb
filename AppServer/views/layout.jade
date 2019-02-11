@@ -15,36 +15,68 @@ html
 
     script(src='/angular/angular.min.js')
     script(src='/angular/prices.js')
+    // TODO: Integrate with Angular or keep native JS
+    script.
+      var openDropdown = false
 
 
-  body(style='background-color:#333333; color:#28d693;')
+  body
 
-    .navbar.navbar-default.bg-dark.sticky-top.row(style='opacity:0.85;')
+    // TODO: Integrate with Angular or keep native JS
+    script.
+      var changeDropdown = function() {
+        console.log("Changing the dropdown");
+        openDropdown = !openDropdown;
+        console.log(openDropdown);
 
-      a.navbar-brand.col-xs-12(href='/')
-        img.mx-5(src='/images/Gamium.png' style='width:100px;')
+        var x = document.getElementById("navbar-mobile");
+        console.log(x);
+        if (openDropdown) {
+          x.className = "navbar-show";
+        } else {
+          x.className = "navbar-hide";
+        }
+      }
 
-      a.nav-link.float-left(href='/contact') Contact / Bug Report
+    .gamium-navbar
+      a.gamium-logo-left(href='/')
+        img(src='/images/Gamium.png' style='width:100px;')
 
-      form.form-inline.col-xs-12.mr-2(action="http://hamiltondynamic.tk/sr" method='POST') 
-        button.btn.btn-outline-success.mr-2.searchBtn(type='submit')
-          i.fa.fa-search
-        input.form-control.text-light.topSearch(type='search' name='search' placeholder='Search for Game Deals' style='width:30vw; background-color:#333333;')
-
+      .navbar-right
+        a.nav-link(href='/contact') 
+          .nav-link-text Contact / Bug Report
+        form.form-inline.nav-form(action="http://localhost:3000/sr" method='POST') 
+          input.form-control.text-light.topSearch(type='search' name='search' placeholder='Search for Game Deals')
+          button.btn.btn-outline-success.searchBtn(type='submit')
+            i.fa.fa-search
+      #navbar-mobile-bars
+        // TODO: Integrate with Angular or keep native JS
+        //i.fa.fa-search.fa-2x(ng-click="changeDropdown()", style="float:right;")
+        i.fa.fa-search.fa-2x(onclick="changeDropdown()", style="float:right;")
+    #navbar-mobile.navbar-hide
+      .navbar-mobile-content
+        form.form-inline.nav-form-mobile(action="http://localhost:3000/sr" method='POST') 
+          input.form-control.text-light.topSearch(type='search' name='search' placeholder='Search for Game Deals')
+          button.btn.btn-outline-success.searchBtn(type='submit')
+            i.fa.fa-search
 
     block content
 
-    .navbar.bg-dark.pt-3.row.wshFooter
-      a.ml-2.pb-4(href='/')
-        img(src='/images/Gamium.png' style='width:12vw;')
+    footer
+      
+      .footer-line
+        a(href='/')
+          img.footer-logo(src='/images/Gamium.png')
+      
+      .footer-line
+        .footer-text
+          p &copy; Gamium Inc. 2019. All Rights Reserved
 
-      .navbar-text
-        p.text-muted.mb-0 &copy; Gamium Inc. 2018. All Rights Reserved
-
-      form.form-inline.mr-3.pb-4(action="http://hamiltondynamic.tk/sr" method='POST')
-        button.btn.btn-outline-success.mr-2.searchBtn(type='submit')
-          i.fa.fa-search
-        input.form-control.text-light.bottomSearch(type='search' name='search' placeholder='Search for Game Deals' style='width:30vw; background-color:#333333;')
+      
+      // form.form-inline.mr-3.pb-4(action="http://localhost:3000/sr" method='POST')
+        // button.btn.btn-outline-success.mr-2.searchBtn(type='submit')
+          // i.fa.fa-search
+        // input.form-control.text-light.bottomSearch(type='search' name='search' placeholder='Search for Game Deals' style='width:30vw; background-color:#333333;')
 
 
     

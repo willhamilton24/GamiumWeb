@@ -12,7 +12,7 @@ var gracefulShutdown = function(msg, callback) {
 }
 
 //Connect to DB
-mongoose.connect(dbURI, { useNewUrlParser: true} );
+mongoose.connect(dbURI);
 
 //DB Communications
 mongoose.connection.on('connected', function() {

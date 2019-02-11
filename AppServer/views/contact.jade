@@ -2,24 +2,27 @@ extends layout
 
 block content
 
-  .row.mt-5(style='margin-bottom: 20vh;')
-
-    .ad.col-lg-2.col-md-0
+  .contact-container
+    .contact-ad-mobile 
+      img.my-2.descb(src="http://placekitten.com/728/90")
+    .vertical-ad-left
       img(src="http://placekitten.com/120/600")
 
-    .container.col-lg-6.col-md-8.col-sm-10.col-xs-12.my-5.border.rounded
-
+    .contact-form
       h1.mt-3 Contact / Bug Report
-      p Having issues with Gamium? Wanna tell us how great we are? Fill in the form below for any comments, complaints, or feedback.
+      p.contact-description Having issues with Gamium? Wanna tell us how great we are? Fill in the form below for any comments, complaints, or feedback.
 
-      form.my-3(action="http://hamiltondynamic.tk/sendemail" method='POST')
-        label Name
-        input.form-control.mb-3(type='text', placeholder="Your name (or someone else's idc)" name='name')
-        label Content
-        textarea.form-control(placeholder="Render unto us, your words" rows='8' name='content')
-        button.btn.btn-primary.mt-3(type="submit") Submit
+      form(action="http://localhost:3000/sendemail" method='POST')
+        label.contact-label Name
+        input.form-control.contact-input(type='text', placeholder="Your name (or someone else's idc)" name='name')
+        label.contact-label Content
+        textarea.form-control.contact-input(placeholder="Render unto us, your words" rows='8' name='content')
+        button.btn.btn-primary.contact-btn(type="submit") Submit
 
-    .ad.col-lg-2.col-md-0.pr-0
+    .vertical-ad-right
       img.float-right(src="http://placekitten.com/120/600")
+
+    .contact-ad-mobile
+      img.my-2.descb(src="http://placekitten.com/728/90")
 
     script(src='/javascripts/submitForm.js')

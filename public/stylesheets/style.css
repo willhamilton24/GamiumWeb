@@ -1,5 +1,40 @@
+
+
+/*
+	Core Colors:
+	body-dark: #333333;
+	navbar-dark: #343a40; (from bootsrap bg-dark)
+	green: #28d693;
+*/
+
+/*
+	Silver Fox: #d4d4dc
+	Deep Matte Grey: #393f4d
+	Dark Slate: #1d1e22
+
+	Slate: #262626
+	Secondhand Grey: #3f3f3f 
+	Whitish: #f5f5f5
+	Light grey: #dcdcdc
+
+	Gray Scale Hues:
+	#20211D - Dark
+	#3B3E3D
+	#585E61 - Medium
+	#7F8181
+	#AAABAD
+	#F0F2F2 - Off White
+	#D0D4D7 - Silver
+*/
+
+
 body {
 	font-family: 'Play', sans-serif;
+	/*background-color:#333333; */
+	/*background-color:#20211D; */
+	/*background-color:#3B3E3D; */
+	background-color:#262626; 
+	color:#28d693;
 }
 
 a {
@@ -12,17 +47,153 @@ a:hover {
 	text-decoration: none;
 }
 
+footer {
+	width: 100%;
+	background-color: #343a40;
+	padding-left: 16px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin-top: 10px;
+	display: inline-block;
+}
+
+.gamium-navbar {
+	opacity:0.85;
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-bottom: 6px;
+	width: 100%;
+	min-height: 60px;
+	height: auto;
+	overflow: auto;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	/* Currently using bootstrap bg-dark */
+	background-color: #343a40;
+	/*background-color: #20211D;*/
+	/*background-color: #3f3f3f;*/
+}
+
+.navbar-hide {
+	display: none;
+}
+
+.navbar-show {
+	display: inline-block;
+}
+
+.gamium-logo-left {
+	float: left;
+	margin-top: 5px;
+}
+
+.navbar-right {
+	display: none;=
+}
+
+#navbar-mobile {
+	position: fixed;
+	left: 0;
+	top: 61px;
+	width: 100%;
+	background-color: #343a40;
+	height: auto;
+	overflow: auto;
+	z-index: 9;
+}
+
+#navbar-mobile-bars {
+	display: inline-block;
+	float: right;
+	padding-top: 14px;
+	padding-right: 10px;
+	width: 50%;
+}
+
+.navbar-mobile-content {
+	width: 100%;
+	display: block;
+	height: 60px;
+	border-top: solid 1px #28d693;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
 .nav-link {
 	color: #28d693;
-	font-size: 2vh;
+	font-size: 14px;
+	float: right;
+	margin-top: -50px;
+	width: 100%;
+	/*margin-right: 25px;*/
+}
+
+.nav-link-mobile {
+	color: #28d693;
+	font-size: 20px;
+	float: right;
+	width: 100%;
+	padding-top: 4px;
+	padding-bottom: 10px;
+}
+
+.nav-link-text {
+	float: right;
+}
+
+.nav-link-text-mobile {
+	text-align:right;
+	margin-right: 25px;
+	color: #28d693;
+}
+
+.nav-form {
+	/*margin-top: 12px;*/
+	/*width: 100%;*/
+	float:right;
+	margin-top: -10px;
+}
+
+.nav-form-mobile {
+	float: right;
+	padding-right: 25px;
+	padding-left: 25px;
+	width: 100%;
+}
+
+.home-cnt {
+	width: 100%;
+	padding-top: 0px;
+}
+
+.topSearch {
+	width: 85%;
+	position: relative;
+	/*background-color:#333333;*/
+	background-color:#343a40;
+	margin-right: 6px;
+	float: right;
+}
+
+.topSearch:focus {
+	background-color:#343a40;
+}
+
+.searchBtn {
+	float: right;
+	color: #28d693;
+	border-color: #28d693;
+	position: relative;
+}
+
+.searchBtn:hover {
+	background-color: #28d693;
 }
 
 .active {
 	background-color: #28d693;
-}
-
-.mobileTitle {
-	display: none;
 }
 
 .descb {
@@ -32,12 +203,6 @@ a:hover {
 .gameImg {
 	display: block;	
 	border-radius: 3px;
-	/*margin: 0 auto;
-	border: 1px solid #28d693;*/
-}
-
-.storePrice {
-	height: 12vh;
 }
 
 .gameDescription {
@@ -48,53 +213,1000 @@ a:hover {
 	max-width: 100%;
 }
 
-.hsBtn {
-	height: 5vh;
-}
-
-.hsBar {
-	height: 5vh;
-}
-
 .quickEx {
 	font-size: 2vh;
 }
 
 .homepageLogo {
 	display: block;
-	width: 30vw;
+	width: 250px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0px;
 }
 
-.searchResult {
-	padding-bottom: 2vh;
-	border-bottom: 1px solid #28d693;
+.btn-home-full {
+	display: none;
 }
 
-.searchResult a {
-	font-size: 3vh;
+.btn-home-mobile {
+
 }
-
-.rI {
-	float: right;
-}
-
-.resultInfo {
-	float: left;
-	list-style: none;
-}
-
-
 
 .thumbnail {
 	width: 20vw;
 	margin-right: 4vw;
 }
 
+.title-panel {
+	margin-left: 25px;
+	margin-right: 25px;
+	width: auto;
+	background-color: #343a40;
+	/*background-color: #20211D;*/
+	/*background-color: #3f3f3f;*/
+	padding-top: 50px;
+	padding-bottom: 50px;
+	padding-right: 16px;
+	padding-left: 16px;
+	margin-bottom: 80px;
+}
+
+.title-text {
+	text-align: left;
+	display: none;
+}
+
+.title-content-box {
+	text-align: left;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.hs-bar {
+	height: 40px;
+	width: 400px;
+	margin-right: 6px;
+}
+
+.hs-btn {
+	height: 40px;
+	width: 100px;
+	float: right;
+}
+
+.footer-line {
+	width: 100%;
+	padding-left: auto;
+	padding-right: auto;
+	position: relative;
+}
+
+.footer-logo {
+	width: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+
+.footer-text {
+	text-align: left;
+	display: block;
+	position: relative;
+	color: #7F8181;	
+	margin-top: 20px;
+	padding-left: 9px;
+}
+
+/* ****************************** */
+/* Styling for Search Result Page */
+/* ****************************** */
+.search-container {
+	/*margin-top: 120px;*/
+	padding-left: 25px;
+	padding-right: 25px;
+	min-height: 60vh;
+	height: auto;
+	overflow: auto;
+}
+
+.search-title {
+	font-size: 32px;
+	/* Silver Font Color */
+	color: #D0D4D7; 
+	letter-spacing: 2px;
+	margin-bottom: 10px;
+}
+
+.search-result {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	/*border-top: 1px solid #28d693;*/
+	border-top: 1px solid #585E61;
+	height: auto;
+	overflow: auto;
+}
+	a {
+		font-size: 3vh;
+	}
+	a:hover {
+		color: #D0D4D7;
+	}
+
+.search-thumbnail {
+	width: 100%;
+	max-width: 400px;
+}
+
+.search-game-title {
+	width: 100%;
+	margin-top: 10px;
+}
+
+.result-info {
+	float: left;
+	list-style: none;
+	color: #D0D4D7;
+	/*#585E61 - Medium
+	#7F8181
+	#AAABAD
+	#F0F2F2 - Off White
+	#D0D4D7 - Silver*/
+}
+
+.rI {
+	float: left;
+	width: 100%;
+	margin-left: 0;
+	margin-top: 20px;
+	padding-bottom: 15px;
+}
 
 
 
 
-@media only screen and (max-width: 991px) {
+/* ****************************** */
+/* Styling for Game Result Page   */
+/* ****************************** */
+
+.game-info-cnt {
+	width: 100%;
+	padding-top: 70px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+.twoSquareAds {
+	display: none;
+}
+
+.game-list {
+	background-color: #343a40;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	border-radius: 6px;
+}
+
+.offers-header {
+	font-size:16px;
+	padding-top: 8px;
+	/*margin-left: 16px;*/
+	padding-bottom: 8px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: #D0D4D7;
+	border-bottom: solid 1px #333333;
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+.game-list-item {
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #333333;
+	height: auto;
+	overflow: auto;
+}
+
+.store-icon-box {
+	height: 40px;
+	width: 40px;
+	float: left;
+}
+
+.store-icon {
+	width:40px;
+}
+
+.store-link {
+	padding-left: 20px;
+	padding-top: 20px;
+	font-size: 20px;
+	color: #D0D4D7;
+	line-height: 40px;
+	height: 40px;
+}
+
+
+
+/* If the text has multiple lines, add the following: */
+/*.center p {
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+}*/
+
+.store-price {
+	float:right; 
+	font-size:20px;
+	font-weight: bold;
+	width: 160px;
+	text-align: right;
+	line-height: 40px;
+	min-height: 40px;
+	height: auto;
+	overflow: auto;
+}
+
+#lower-icon {
+	margin-top: 20px;
+}
+
+#lower-link {
+	line-height: 60px;
+	min-height: 60px;
+	height: auto;
+	overflow: auto;
+}
+
+#lower-price {
+	line-height: 30px;
+	height: 60px;
+}
+
+.game-panel-left {
+	width: 100%;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.game-panel-right {
+	width: 100%;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.game-title {
+	display:none;
+}
+
+.game-title-mobile {
+	font-weight: bold;
+	color: #F0F2F2;
+}
+
+.game-dp {
+	font-size: 14px;
+	line-height: 20px;
+	color: #7F8181;
+
+	/*#585E61 - Medium
+	#7F8181
+	#AAABAD
+	#F0F2F2 - Off White
+	#D0D4D7 - Silver*/
+}
+
+.card-footer {
+	color: #7F8181;
+}
+
+/* ****************************** */
+/* Styling for Contact Form Page  */
+/* ****************************** */
+
+.contact-container {
+	margin-top: 120px;
+	padding-left: 25px;
+	padding-right: 25px;
+	width: 100%;
+	height: auto;
+	overflow: auto;
+}
+
+.contact-form {
+	/*border: 1px solid #D0D4D7;*/
+	border-radius: 6px;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-bottom: 8px;
+	width: 100%;
+	height: auto;
+	overflow: auto;
+	z-index: 9;
+	display: inline-block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.contact-description {
+	color: #D0D4D7;
+}
+
+.vertical-ad-left {
+	display: none;
+}
+
+.vertical-ad-right {
+	display: none;
+}
+
+.home-vertical-ad-left {
+	display: none;
+}
+
+.home-vertical-ad-right {
+	display: none;
+}
+
+.search-vertical-ad-left {
+	display: none;
+}
+
+.search-vertical-ad-right {
+	display: none;
+}
+
+.game-vertical-ad-left {
+	display: none;
+}
+
+.game-vertical-ad-right {
+	display: none;
+}
+
+.contact-ad-mobile {
+
+}
+
+.search-contact-ad-mobile {
+	margin-top: 70px;
+}
+
+.ad-mobile-top {
+	margin-bottom: 30px;
+}
+
+.home-ads {
+	display: none;
+}
+
+
+.contact-btn {
+	background-color: #28d693;
+	border-color: #28d693;
+	color: #262626;
+	margin-top: 18px;
+}
+
+.contact-label {
+	margin-top: 12px;
+}
+
+.contact-input {
+	background-color: #262626;
+	/*color: #28d693; If you want green input*/
+	color: #D0D4D7;
+}
+
+/* ****************************** */
+/* Styling for 404 Page  */
+/* ****************************** */
+
+.four-container {
+	padding-top: 100px;
+	height: 70vh;
+}
+
+.four-title {
+	text-align: center;	
+	font-size: 200px;
+}
+
+
+/**************************************************/
+/* Mobile Size Screens <580px */
+/**************************************************/
+
+@media (max-width: 580px) {
+
+	.hs-bar {
+		height: 40px;
+		width: 240px;
+		margin-right: 6px;
+	}
+
+	.hs-btn {
+		height: 40px;
+		width: 100px;
+		float: right;
+		margin-top: 5px;
+	}
+    
+}
+
+/**************************************************/
+/* Mobile Size Screens <700px */
+/**************************************************/
+
+@media (min-width: 581) and (max-width: 699px) { 
+	.gameImg {
+		margin-left: 0;
+		width: 100%;
+	}
+
+	.hsBtn {
+		margin-right: 0px;
+	}
+
+	.title-content-box {
+		text-align: left;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.hs-bar {
+		height: 40px;
+		width: 450px;
+		margin-right: 6px;
+	}
+
+	.hs-btn {
+		height: 40px;
+		width: 100px;
+	}
+
+	.btn-home-full {
+		display: inline;
+	}
+
+	.btn-home-mobile {
+		display: none;
+	}
+
+}
+
+/* Everything above here is optimized for mobile ("Mobile First") */
+/**************************************************/
+/* Tablet Size Screens >700px */
+/**************************************************/
+
+@media (min-width: 700px) and (max-width: 1049px) { 
+
+	footer {
+		padding-left: 24px;
+		margin-top: 50px;
+	}
+
+	.gamium-navbar {
+		padding-left: 24px;
+		padding-right: 24px;
+	}
+
+	
+
+	.navbar-right {
+		width: 475px;
+		float: right;
+		position: relative;
+		display: inline-block;
+	}
+
+	#navbar-mobile {
+		display: none;
+	}
+
+	#navbar-mobile-bars {
+		display: none;
+	}
+
+	.home-cnt {
+		width: 100%;
+		padding-top: 80px;
+		float: left;
+	}
+
+	.title-text {
+		display: inline-block;
+	}
+
+	.gamium-logo-left {
+		margin-top: 5px;
+	}
+
+	.nav-link {
+		color: #28d693;
+		font-size: 14px;
+		float: left;
+		margin-top: 12px;
+		width: 200px;
+		margin-right: 25px;
+	}
+
+	.nav-form {
+		float: right;
+		margin-top: 12px;
+		width: 250px;
+	}
+
+	.topSearch {
+		width: 200px;
+		margin-right: 6px;
+	}
+
+	.homepageLogo {
+		width: 300px;
+		margin-top: 70px;
+	}
+
+	.home-ads {
+		width: 100%;
+		display: block;
+	}
+
+	.btn-home-full {
+		display: inline-block;
+	}
+
+	.btn-home-mobile {
+		display: none;
+	}
+
+	.title-panel {
+		margin-left: 33px;
+		margin-right: 33px;
+	}
+
+	.title-content-box {
+		text-align: left;
+		width: 650px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.hs-bar {
+		height: 40px;
+		width: 500px;
+		margin-right: 6px;
+	}
+
+	.hs-btn {
+		height: 40px;
+		width: 100px;
+	}
+
+	.search-container {
+		margin-top: 100px;
+		width: 85%;
+		display: inline-block;
+	}
+
+	.game-info-cnt {
+		width: 70%;
+		padding-top: 100px;
+		float: left;
+		display: inline-block;
+	}
+
+/*	.footer-text {
+		padding-left: 9px;
+	}*/
+	
+	/* Search Results Styling */
+	
+
+	.search-thumbnail {
+		width: 300px;
+		float: left;
+		margin-right: 40px;
+	}
+
+	.search-game-title {
+		width: 250px;
+		margin-top: 10px;
+		margin-right: 20px;
+		float: left;
+	}
+
+	.rI {
+		float: left;
+		width: 250px;
+	}
+
+	/* Game Results Styling */
+
+	.twoSquareAds {
+		display: inline;
+		margin-top: 10px;
+	}
+
+	.store-price {
+		width: 300px;
+		font-size: 24px;
+	}
+
+	/* Styling for Contact Form Page  */
+
+	.contact-container{
+		margin-top: 80px;
+	}
+
+	.contact-form {
+		width: 60%;
+		display: inline-block;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+
+	.contact-description {
+		color: #D0D4D7;
+	}
+
+	.vertical-ad-left {
+		display: inline-block;
+		float: left;
+		width: 20%;
+	}
+
+	.vertical-ad-right {
+		display: inline-block;
+		float: right;
+		width: 20%;
+	}
+
+	.contact-ad-mobile {
+		display: none;
+	}
+
+	.home-vertical-ad-left {
+		display: none;
+	}
+
+	.home-vertical-ad-right {
+		display: none;
+	}
+
+	.search-vertical-ad-left {
+		display: none;
+	}
+
+	.search-vertical-ad-right {
+		margin-top: 100px;
+		display: inline-block;
+		float: right;
+		width: 15%;
+	}
+
+	.game-vertical-ad-left {
+		margin-top: 100px;
+		display: inline-block;
+		float: left;
+		width: 15%;
+	}
+
+	.game-vertical-ad-right {
+		margin-top: 100px;
+		display: inline-block;
+		float: right;
+		width: 15%;
+	}
+
+	.search-contact-ad-mobile {
+		display: none;
+	}
+
+	.four-title {
+		font-size: 250px;
+	}
+}
+
+/**************************************************/
+/* Desktop Size Screens >1050px */
+/**************************************************/
+
+@media (min-width: 1050px) { 
+
+	footer {
+		padding-left: 36px;
+		margin-top: 50px;
+	}
+
+	.gamium-navbar {
+		padding-left: 36px;
+		padding-right: 36px;
+	}
+
+	.gamium-logo-left {
+		margin-top: 5px;
+	}
+
+	.navbar-right {
+		width: 475px;
+		float: right;
+		position: relative;
+		display: inline-block;
+	}
+
+	#navbar-mobile {
+		display: none;
+	}
+
+	#navbar-mobile-bars {
+		display: none;
+	}
+
+	.nav-link {
+		color: #28d693;
+		font-size: 14px;
+		float: left;
+		margin-top: 12px;
+		width: 200px;
+		margin-right: 25px;
+
+	}
+
+	.nav-form {
+		float: right;
+		margin-top: 12px;
+		width: 250px;
+	}
+
+	.home-cnt {
+		width: 80%;
+		float: left;
+	}
+
+	.title-text {
+		display: inline-block;
+	}
+
+	.topSearch {
+		width: 200px;
+		margin-right: 6px;
+	}
+
+	.homepageLogo {
+		width: 450px;
+		margin-top: 50px;
+	}
+
+	.title-panel {
+		margin-left: 45px;
+		margin-right: 45px;
+	}
+
+	.title-content-box {
+		width: 700px;
+	}
+
+	.hs-bar {
+		width: 500px;
+	}
+
+	.hs-btn {
+		width: 100px;
+	}
+
+	.search-container {
+		margin-top: 100px;
+		width: 80%;
+		display: inline-block;
+	}
+
+	.btn-home-full {
+		display: inline-block;
+	}
+
+	.btn-home-mobile {
+		display: none;
+	}
+
+	#lower-icon {
+		margin-top: 30px;
+	}
+
+	#lower-link {
+		line-height: 80px;
+		min-height: 80px;
+		height: auto;
+		overflow: auto;
+	}
+
+	#lower-price {
+		line-height: 40px;
+		height: 80px;
+	}
+
+	/* Search Results Styling */
+	.search-result {
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+
+	.rI {
+		float: left;
+		width: 320px;
+	}
+
+	.search-thumbnail {
+		width: 300px;
+		float: left;
+		margin-right: 80px;
+	}
+
+	.search-game-title {
+		width: 400px;
+		margin-right: 20px;
+		float: left;
+	}
+
+	/* Game Results Styling */
+	.twoSquareAds {
+		display: inline;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	.game-info-cnt {
+		width: 80%;
+		padding-top: 80px;
+		padding-left: 45px;
+		padding-right: 45px;
+		float: left;
+		display: inline-block;
+	}
+
+	.storeLink {
+    	display: inline-block;
+		font-size: 6em;
+    }
+
+    .store-link {
+		font-size: 20px;
+		color: #D0D4D7;
+	}
+
+	.store-price {
+		float:right; 
+		font-size:30px;
+		font-weight: bold;
+		width: 280px;
+		text-align: right;
+	}
+
+	.game-panel-left {
+		width: 50%;
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+
+	.game-panel-right {
+		width: 50%;
+		padding-left: 20px;
+		padding-right: 20px;
+
+	}
+
+	.game-title {
+		font-weight: bold;
+		color: #F0F2F2;
+		display: block;
+	}
+
+	.game-title-mobile {
+		display:none;
+	}
+
+	/* Styling for Contact Form Page  */
+
+	.contact-container{
+		margin-top: 80px;
+
+	}
+
+	.contact-form {
+		width: 60%;
+		display: inline-block;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+
+	.contact-description {
+		color: #D0D4D7;
+	}
+
+	.vertical-ad-left {
+		display: inline-block;
+		float: left;
+		width: 20%;
+	}
+
+	.vertical-ad-right {
+		display: inline-block;
+		float: right;
+		width: 20%;
+	}
+
+	.contact-ad-mobile {
+		display: none;
+	}
+
+	.home-ads {
+		display: none;
+	}
+
+	.home-vertical-ad-left {
+		margin-top: 100px;
+		display: inline-block;
+		float: left;
+		width: 10%;
+	}
+
+	.home-vertical-ad-right {
+		margin-top: 100px;
+		display: inline-block;
+		float: right;
+		width: 10%;
+	}
+
+	.search-vertical-ad-left {
+		margin-top: 100px;
+		display: inline-block;
+		float: left;
+		width: 10%;
+	}
+
+	.search-vertical-ad-right {
+		margin-top: 100px;
+		display: inline-block;
+		float: right;
+		width: 10%;
+	}
+
+	.game-vertical-ad-left {
+		margin-top: 80px;
+		display: inline-block;
+		float: left;
+		width: 10%;
+	}
+
+	.game-vertical-ad-right {
+		margin-top: 80px;
+		display: inline-block;
+		float: right;
+		width: 10%;
+	}
+
+	.search-contact-ad-mobile {
+		display: none;
+	}
+
+	.four-title {
+		font-size: 300px;
+	}
+
+}
+
+
+/*@media only screen and (max-width: 991px) {
     .mobileTitle {
     	display: inline-block;
     	padding-bottom: 3vh;
@@ -117,16 +1229,17 @@ a:hover {
 }
 
 @media only screen and (max-width: 580px) {
-    .gameInfoCnt {
+	.gameInfoCnt {
     	margin-left: 2vw;
     }
 
-    .gameImg {
-    	margin-left: 0;
+	.gameImg {
+		margin-left: 0;
 		width: 100%;
 	}
 
 	.hsBtn {
 		margin-right: 0px;
 	}
-}
+    
+}*/
