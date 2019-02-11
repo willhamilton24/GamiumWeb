@@ -14,7 +14,7 @@ var transporter = nodemailer.createTransport({
 
 // Dev Server
 var apiOptions = {
-	server : "http://localhost:3000"
+	server : "http://hamiltondynamic.tk"
 }
 
 

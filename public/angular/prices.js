@@ -40,12 +40,12 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 
 	var name = encodeURIComponent(document.getElementsByTagName("h1")[0].innerHTML.replace('&amp;', '&'));
 
-	$http.get('http://localhost:3000/api/gamesname/' + name).then(function(gameData) {
+	$http.get('http://hamiltondynamic.tk/api/gamesname/' + name).then(function(gameData) {
 		console.log(gameData.data);
 		var id = gameData.data.appid;
 		if(gameData.data.gogprice) {
 			console.log("starting price finding");
-			$http.get('http://localhost:3000/api/gog/' + id).then(function(gogData) {
+			$http.get('http://hamiltondynamic.tk/api/gog/' + id).then(function(gogData) {
 				console.log("gotten");
 				var pricesLoaded = new Promise(function(resolve, reject) {
 					console.log('GOG done');
@@ -69,7 +69,7 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 
 						var kinguinPrice = new Promise(function(resolve, reject){
 							console.log("Getting Kinguin Price...")
-							$http.get('http://localhost:3000/api/kinguin/' + gameData.data.kinguinID).then(function(kinguinData){
+							$http.get('http://hamiltondynamic.tk/api/kinguin/' + gameData.data.kinguinID).then(function(kinguinData){
 								console.log(kinguinData);
 								$scope.kinguin = kinguinData.data.price;
 
@@ -99,7 +99,7 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 			if(gameData.data.kinguinID) {
 
 				var kinguinPrice = new Promise(function(resolve, reject){
-					$http.get('http://localhost:3000/api/kinguin/' + gameData.data.kinguinID).then(function(kinguinData){
+					$http.get('http://hamiltondynamic.tk/api/kinguin/' + gameData.data.kinguinID).then(function(kinguinData){
 						console.log(kinguinData);
 						$scope.kinguin = kinguinData.data.price;
 
