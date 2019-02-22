@@ -36,16 +36,16 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 
 	$scope.gog = "Getting Price...";
 	$scope.kinguin = 'Getting Price...';
-	$scope.g2a = 'Price Data Not Yet Available';
+	$scope.g2a = 'Getting Price...';
 
 	var name = encodeURIComponent(document.getElementsByTagName("h1")[0].innerHTML.replace('&amp;', '&'));
 
-	$http.get('http://localhost:3000/api/gamesname/' + name).then(function(gameData) {
+	$http.get('http://hamiltondynamic.tk/api/gamesname/' + name).then(function(gameData) {
 		console.log(gameData.data);
 		var id = gameData.data.appid;
 		if(gameData.data.gogprice) {
 			console.log("starting price finding");
-			$http.get('http://localhost:3000/api/gog/' + id).then(function(gogData) {
+			$http.get('http://hamiltondynamic.tk/api/gog/' + id).then(function(gogData) {
 				console.log("gotten");
 				var pricesLoaded = new Promise(function(resolve, reject) {
 					console.log('GOG done');
@@ -69,7 +69,7 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 
 						var kinguinPrice = new Promise(function(resolve, reject){
 							console.log("Getting Kinguin Price...")
-							$http.get('http://localhost:3000/api/kinguin/' + gameData.data.kinguinID).then(function(kinguinData){
+							$http.get('http://hamiltondynamic.tk/api/kinguin/' + gameData.data.kinguinID).then(function(kinguinData){
 								console.log(kinguinData);
 								$scope.kinguin = kinguinData.data.price;
 
@@ -90,7 +90,38 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 
 						});
 					}
+
+					if(gameData.data.g2aID) {
+
+						var g2aPrice = new Promise(function(resolve, reject) {
+							console.log("Getting G2A Price...")
+							$http.get('http://hamiltondynamic.tk/api/g2a/' + gameData.data.g2aID).then(function(g2aData) {
+								console.log(g2aData);
+								$scope.g2a = g2aData.data.price;
+
+								if($scope.g2a == g2aData.data.price) {
+									resolve("Loaded");
+								} else {
+									reject("Error");
+								}
+							});
+						});
+
+						g2aPrice.then(function(g2aResult) {
+							console.log(g2aResult);
+
+							$scope.$apply(function() {
+								$scope.bp = bestPrice();
+							});
+						});
+					} else {
+						$scope.g2a = "Not Sold Here"
+					}
+
 				});
+
+
+
 
 			});
 		} else {
@@ -99,7 +130,7 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 			if(gameData.data.kinguinID) {
 
 				var kinguinPrice = new Promise(function(resolve, reject){
-					$http.get('http://localhost:3000/api/kinguin/' + gameData.data.kinguinID).then(function(kinguinData){
+					$http.get('http://hamiltondynamic.tk/api/kinguin/' + gameData.data.kinguinID).then(function(kinguinData){
 						console.log(kinguinData);
 						$scope.kinguin = kinguinData.data.price;
 
@@ -119,6 +150,38 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 					});
 
 				});
+
+			} else {
+				$scope.kinguin = "Not Sold Here"
+			}
+
+			if(gameData.data.g2aID) {
+
+				var g2aPrice = new Promise(function(resolve, reject) {
+					$http.get('http://hamiltondynamic.tk/api/g2a/' + gameData.data.g2aID).then(function(g2aData) {
+						console.log(g2aData);
+						$scope.g2a = g2aData.data.price;
+
+						if($scope.g2a == g2aData.data.price) {
+							resolve("Loaded");
+						} else {
+							reject("Error");
+						}
+					});
+				});
+
+				g2aPrice.then(function(g2aResult) {
+					console.log(g2aResult);
+
+					$scope.$apply(function() {
+							$scope.bp = bestPrice();
+					});
+
+				});
+
+				
+			} else {
+				$scope.g2a = "Not Sold Here"
 			}
 		}
 	});
