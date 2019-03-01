@@ -31,9 +31,9 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 
 	$scope.exch = 1.15;
 
-	$http.get('http://hamiltondynamic.tk/api/priceconverter/').then(function(exchangeRate){
-		console.log(exchangeRate)
-	});
+	//$http.get('http://hamiltondynamic.tk/api/priceconverter/').then(function(exchangeRate){
+	//	console.log(exchangeRate)
+	//});
 
 	$scope.bp = "Getting prices...";
 
