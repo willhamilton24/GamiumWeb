@@ -30,7 +30,7 @@ function bestPrice() {
 priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 
 	$http.get('http://hamiltondynamic.tk/api/priceconverter/').then(function(exchangeRate){
-		$scope.exch = exchangeRate.data.price;
+		$scope.exch = exchangeRate;
 		console.log($scope.exch)
 	});
 
