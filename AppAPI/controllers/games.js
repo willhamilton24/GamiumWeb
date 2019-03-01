@@ -22,7 +22,7 @@ var exchangeRates = function() {
 		})
 
 		resp.on('end', () => {
-			global.EUROtoUSD = JSON.parse(eur).rates.USD
+			var global.EUROtoUSD = JSON.parse(eur).rates.USD
 		})
 	})
 }
