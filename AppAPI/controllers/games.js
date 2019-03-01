@@ -173,11 +173,11 @@ module.exports.getKinguinPrice = function(req,res) {
 					price = data.price * 1.15
 
 					price = price.toString();
-					if(parseInt(price.length) > 1) {
+					price += "0";
+					if(price.length > 5) { //ParseInt
 						price = price.substring(0,4);
 						sendJsonResponse(res, 200, { "price": "$" + price});
 					} else {
-						price = price.substring(0,3);
 						sendJsonResponse(res, 200, { "price": "$" + price});
 					}
 				
