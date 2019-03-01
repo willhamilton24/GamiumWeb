@@ -10,7 +10,7 @@ var sendJsonResponse = function(res, status, content) {
 	res.json(content);
 }
 
-var exchangeRates = function() {
+module.exports.exchangeRates = function(req, res) {
 	https.get({
 		protocol: 'https:',
 		hostname: 'api.exchangeratesapi.io',
@@ -24,6 +24,7 @@ var exchangeRates = function() {
 
 		resp.on('end', () => {
 			EUROtoUSD = JSON.parse(eur).rates.USD
+			sendJsonResponse(res, 200, EUROtoUSD)
 		})
 	})
 }
@@ -171,8 +172,6 @@ module.exports.getKinguinPrice = function(req,res) {
 
 					price = data.price
 
-					exchangeRates();
-					price = price * EUROtoUSD;
 					price = price.toString();
 					if(parseInt(price.length) > 1) {
 						price = price.substring(0,4);
@@ -228,8 +227,6 @@ module.exports.getG2APrice = function(req,res) {
 
 					price = data.docs[0].minPrice
 
-					exchangeRates();
-					price = price * EUROtoUSD;
 					price = price.toString();
 					if(parseInt(price.length) > 1) {
 						price = price.substring(0,4);
