@@ -9,6 +9,24 @@ var sendJsonResponse = function(res, status, content) {
 	res.json(content);
 }
 
+var exchangeRates = function() {
+	https.get({
+		protocol: 'https:',
+		hostname: 'api.exchangeratesapi.io',
+		path: '/latest'
+	}, (resp) => {
+		let eur = '';
+
+		resp.on('data', (chonk) => {
+			eur +- chonk;
+		})
+
+		resp.on('end', () => {
+			global.EUROtoUSD = JSON.parse(eur).rates.USD
+		})
+	})
+}
+
 module.exports.readOneGame = function(req,res) {
 	if(req.params && req.params.appid) {
 		console.log(req.params.appid);
@@ -150,7 +168,8 @@ module.exports.getKinguinPrice = function(req,res) {
 				} else {
 					data = JSON.parse(data);
 
-					price = data.price * 1.15;
+					exchangeRates();
+					price = price * EUROtoUSD;
 					price = price.toString();
 					if(parseInt(price.length) > 1) {
 						price = price.substring(0,4);
