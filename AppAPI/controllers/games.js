@@ -170,7 +170,7 @@ module.exports.getKinguinPrice = function(req,res) {
 				} else {
 					data = JSON.parse(data);
 
-					price = data.price
+					price = data.price * 1.15
 
 					price = price.toString();
 					if(parseInt(price.length) > 1) {
@@ -227,7 +227,7 @@ module.exports.getG2APrice = function(req,res) {
 
 					console.log(data)
 
-					price = data.docs[0].minPrice
+					price = data.docs[0].minPrice * 1.15;
 
 					price = price.toString();
 					if(parseInt(price.length) > 1) {
