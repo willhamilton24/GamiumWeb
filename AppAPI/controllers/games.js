@@ -168,6 +168,8 @@ module.exports.getKinguinPrice = function(req,res) {
 				} else {
 					data = JSON.parse(data);
 
+					price = data.price
+
 					exchangeRates();
 					price = price * EUROtoUSD;
 					price = price.toString();
@@ -207,6 +209,39 @@ module.exports.getG2APrice = function(req,res) {
 	}
 
 	var price;
+
+	var makeRequest = function() {
+
+		https.get(options, (resp) => {
+			let data = '';
+
+			resp.on('data', (chunk) => {
+				data += chunk;
+			});
+
+			resp.on('end', () => {
+				if (data.charAt(0) == '<') {
+					module.exports.getG2APrice(req, res);
+				} else {
+					data = JSON.parse(data);
+
+					price = data.docs[0].minPrice
+
+					exchangeRates();
+					price = price * EUROtoUSD;
+					price = price.toString();
+					if(parseInt(price.length) > 1) {
+						price = price.substring(0,4);
+						sendJsonResponse(res, 200, { "price": "$" + price});
+					} else {
+						price = price.substring(0,3);
+						sendJsonResponse(res, 200, { "price": "$" + price});
+					}
+				
+				}
+			});
+
+		});
 
 	
 }
