@@ -7,7 +7,7 @@ function bestPrice() {
 	console.log("Finding best price...");
 
 	var prices = document.getElementsByClassName("store-price");
-	var stores = document.getElementsByClassName("storeLink");
+	var stores = document.getElementsByClassName("store-link");
 
 	let bestPrice = parseFloat(prices[0].innerHTML.replace('$', ''));
 	let bestStore = stores[0].innerHTML;
