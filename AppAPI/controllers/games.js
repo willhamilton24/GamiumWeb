@@ -227,7 +227,7 @@ module.exports.getG2APrice = function(req,res) {
 
 					console.log(data)
 
-					price = 20 //data.docs[0].price
+					price = data.docs[0].minPrice
 
 					price = price.toString();
 					if(parseInt(price.length) > 1) {
