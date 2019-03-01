@@ -243,5 +243,5 @@ module.exports.getG2APrice = function(req,res) {
 
 		});
 
-	
+	}
 }
