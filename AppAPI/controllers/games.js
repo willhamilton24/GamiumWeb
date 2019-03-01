@@ -225,7 +225,7 @@ module.exports.getG2APrice = function(req,res) {
 				} else {
 					data = JSON.parse(data);
 
-					price = data
+					price = data.docs[0].price
 
 					price = price.toString();
 					if(parseInt(price.length) > 1) {
@@ -242,4 +242,14 @@ module.exports.getG2APrice = function(req,res) {
 		});
 
 	}
+
+	var tryCatchRequest = function() {
+		try {
+			makeRequest();
+		} catch (e) {
+			tryCatchRequest();
+		}
+	}
+
+	tryCatchRequest();
 }
