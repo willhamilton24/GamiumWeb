@@ -10,7 +10,7 @@ var sendJsonResponse = function(res, status, content) {
 	res.json(content);
 }
 
-module.exports.exchangeRates = function(req, res) {
+/*module.exports.exchangeRates = function(req, res) {
 	https.get({
 		protocol: 'https:',
 		hostname: 'api.exchangeratesapi.io',
@@ -27,7 +27,7 @@ module.exports.exchangeRates = function(req, res) {
 			sendJsonResponse(res, 200, EUROtoUSD)
 		})
 	})
-}
+}*/
 
 module.exports.readOneGame = function(req,res) {
 	if(req.params && req.params.appid) {
@@ -225,7 +225,7 @@ module.exports.getG2APrice = function(req,res) {
 				} else {
 					data = JSON.parse(data);
 
-					price = data.docs[0].minPrice
+					price = data
 
 					price = price.toString();
 					if(parseInt(price.length) > 1) {
