@@ -74,7 +74,7 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 							console.log("Getting Kinguin Price...")
 							$http.get('http://hamiltondynamic.tk/api/kinguin/' + gameData.data.kinguinID).then(function(kinguinData){
 								console.log(kinguinData);
-								$scope.kinguin = kinguinData.data.price;
+								$scope.kinguin = kinguinData.data.price * $scope.exch;
 
 								if($scope.kinguin == kinguinData.data.price) {
 									resolve("Loaded");
@@ -100,7 +100,7 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 							console.log("Getting G2A Price...")
 							$http.get('http://hamiltondynamic.tk/api/g2a/' + gameData.data.g2aID).then(function(g2aData) {
 								console.log(g2aData);
-								$scope.g2a = g2aData.data.price;
+								$scope.g2a = g2aData.data.price * $scope.exch;
 
 								if($scope.g2a == g2aData.data.price) {
 									resolve("Loaded");
@@ -135,7 +135,7 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 				var kinguinPrice = new Promise(function(resolve, reject){
 					$http.get('http://hamiltondynamic.tk/api/kinguin/' + gameData.data.kinguinID).then(function(kinguinData){
 						console.log(kinguinData);
-						$scope.kinguin = kinguinData.data.price;
+						$scope.kinguin = kinguinData.data.price * $scope.exch;
 
 						if($scope.kinguin == kinguinData.data.price) {
 							resolve("Loaded");
@@ -163,7 +163,7 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 				var g2aPrice = new Promise(function(resolve, reject) {
 					$http.get('http://hamiltondynamic.tk/api/g2a/' + gameData.data.g2aID).then(function(g2aData) {
 						console.log(g2aData);
-						$scope.g2a = g2aData.data.price;
+						$scope.g2a = g2aData.data.price  * $scope.exch;
 
 						if($scope.g2a == g2aData.data.price) {
 							resolve("Loaded");
