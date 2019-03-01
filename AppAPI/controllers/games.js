@@ -225,7 +225,9 @@ module.exports.getG2APrice = function(req,res) {
 				} else {
 					data = JSON.parse(data);
 
-					price = data.docs[0].price
+					console.log(data)
+
+					price = 20 //data.docs[0].price
 
 					price = price.toString();
 					if(parseInt(price.length) > 1) {
