@@ -21,6 +21,6 @@ router.get('/g2a/:gid', ctrlGames.getG2APrice)
 router.get('/s/:query', ctrlGames.getSearchResults);
 
 //Convert Prices
-router.get('/priceconverter', ctrlGames.exchangeRates);
+//router.get('/priceconverter', ctrlGames.exchangeRates);
 
 module.exports = router;
