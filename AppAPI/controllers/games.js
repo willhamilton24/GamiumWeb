@@ -19,7 +19,7 @@ var exchangeRates = function() {
 		let eur = '';
 
 		resp.on('data', (chonk) => {
-			eur +- chonk;
+			eur += chonk;
 		})
 
 		resp.on('end', () => {
