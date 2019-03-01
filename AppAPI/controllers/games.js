@@ -3,6 +3,7 @@ const Nightmare = require('nightmare');
 const https = require('https');
 
 var G = mongoose.model('game');
+var EUROtoUSD = 1.15
 
 var sendJsonResponse = function(res, status, content) {
 	res.status(status);
@@ -22,7 +23,7 @@ var exchangeRates = function() {
 		})
 
 		resp.on('end', () => {
-			var global.EUROtoUSD = JSON.parse(eur).rates.USD
+			EUROtoUSD = JSON.parse(eur).rates.USD
 		})
 	})
 }
