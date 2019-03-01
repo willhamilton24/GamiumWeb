@@ -174,8 +174,8 @@ module.exports.getKinguinPrice = function(req,res) {
 
 					price = price.toString();
 					price = price + "0"
-					if(price.length > 5) { //ParseInt
-						price = price.substring(0,4);
+					if(price.length > 6) { //ParseInt
+						price = price.substring(0,5);
 						sendJsonResponse(res, 200, { "price": "$" + price});
 					} else {
 						sendJsonResponse(res, 200, { "price": "$" + price});
@@ -231,8 +231,8 @@ module.exports.getG2APrice = function(req,res) {
 
 					price = price.toString();
 					price = price + "0";
-					if(price.length > 5) { //ParseInt
-						price = price.substring(0,4);
+					if(price.length > 6) { //ParseInt
+						price = price.substring(0,5);
 						sendJsonResponse(res, 200, { "price": "$" + price});
 					} else {
 						sendJsonResponse(res, 200, { "price": "$" + price});
