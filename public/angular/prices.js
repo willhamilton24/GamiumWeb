@@ -43,12 +43,12 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 
 	var name = encodeURIComponent(document.getElementsByTagName("h1")[0].innerHTML.replace('&amp;', '&'));
 
-	$http.get('http://gamium.gg/api/gamesname/' + name).then(function(gameData) {
+	$http.get('https://gamium.gg/api/gamesname/' + name).then(function(gameData) {
 		console.log(gameData.data);
 		var id = gameData.data.appid;
 		if(gameData.data.gogprice) {
 			console.log("starting price finding");
-			$http.get('http://gamium.gg/api/gog/' + id).then(function(gogData) {
+			$http.get('https://gamium.gg/api/gog/' + id).then(function(gogData) {
 				console.log("gotten");
 				var pricesLoaded = new Promise(function(resolve, reject) {
 					console.log('GOG done');
@@ -72,7 +72,7 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 
 						var kinguinPrice = new Promise(function(resolve, reject){
 							console.log("Getting Kinguin Price...")
-							$http.get('http://gamium.gg/api/kinguin/' + gameData.data.kinguinID).then(function(kinguinData){
+							$http.get('https://gamium.gg/api/kinguin/' + gameData.data.kinguinID).then(function(kinguinData){
 								console.log(kinguinData);
 								$scope.kinguin = kinguinData.data.price;
 
@@ -98,7 +98,7 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 
 						var g2aPrice = new Promise(function(resolve, reject) {
 							console.log("Getting G2A Price...")
-							$http.get('http://gamium.gg/api/g2a/' + gameData.data.g2aID).then(function(g2aData) {
+							$http.get('https://gamium.gg/api/g2a/' + gameData.data.g2aID).then(function(g2aData) {
 								console.log(g2aData);
 								$scope.g2a = g2aData.data.price;
 
@@ -161,7 +161,7 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 			if(gameData.data.g2aID) {
 
 				var g2aPrice = new Promise(function(resolve, reject) {
-					$http.get('http://gamium.gg/api/g2a/' + gameData.data.g2aID).then(function(g2aData) {
+					$http.get('https://gamium.gg/api/g2a/' + gameData.data.g2aID).then(function(g2aData) {
 						console.log(g2aData);
 						$scope.g2a = g2aData.data.price;
 
