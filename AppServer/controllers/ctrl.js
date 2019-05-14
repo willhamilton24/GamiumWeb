@@ -14,7 +14,7 @@ var transporter = nodemailer.createTransport({
 
 // Dev Server
 var apiOptions = {
-
+	server : "https://gamium.gg"
 }
 
 
