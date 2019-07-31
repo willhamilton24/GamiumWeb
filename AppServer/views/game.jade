@@ -1,4 +1,4 @@
-extends layout
+extends layout 
 
 block content
 
@@ -27,14 +27,14 @@ block content
           .game-list-item
             .store-icon-box
               img.store-icon(src='/images/Stores/kinguin.png')
-            a.store-link(href='https://kinguin.net') Kinguin
-            a.store-price(href='https://kinguin.net') {{ kinguin }}
+            a.store-link(href='#{gameInfo.kinguinlink}'') Kinguin
+            a.store-price(href='#{gameInfo.kinguinlink}') {{ kinguin }}
           .game-list-item
             .store-icon-box
               // include these id tags (#lower-X) when there is two lines of text
               img.store-icon#lower-icon(src='/images/Stores/G2A.png')
-            a.store-link#lower-link(href='https://www.g2a.com/r/gamium') G2A
-            a.store-price#lower-price(href='https://www.g2a.com/r/gamium') {{ g2a }}
+            a.store-link#lower-link(href='#{gameInfo.g2alink}') G2A
+            a.store-price#lower-price(href='#{gameInfo.g2alink}') {{ g2a }}
           .card-footer(style='font-size: 2vh;') {{ bp }}
         .contact-ad-mobile
           img.my-2.descb(src="https://placekitten.com/728/90")

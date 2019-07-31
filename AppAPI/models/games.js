@@ -5,9 +5,13 @@ var gameSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
+	name_slug: {
+		type: String,
+		required: true
+	},
 	appid: {
 		type: String,
-		required: false
+		required: true
 	},
 	img: {
 		type: String,
@@ -29,26 +33,22 @@ var gameSchema = new mongoose.Schema({
 		type: String,
 		required: false
 	},
-	goglink: {
+	gogLink: {
 		type: String,
 		required: false
 	},
-	gogprice: {
+	g2aID: {
 		type: String,
 		required: false
 	},
-	gogPrice: {
+	g2aLink: {
 		type: String,
 		required: false
-	},
-	"gog-link": {
+	}
+	kinguinID: {
 		type: String,
 		required: false
-	},
-	"gog-price": {
-		type: String,
-		required: false
-	},
+	}
 });
 
 var G = mongoose.model('game', gameSchema);
