@@ -44,7 +44,7 @@ var gameSchema = new mongoose.Schema({
 	g2aLink: {
 		type: String,
 		required: false
-	}
+	},
 	kinguinID: {
 		type: String,
 		required: false
