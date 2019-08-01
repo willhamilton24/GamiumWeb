@@ -147,7 +147,7 @@ module.exports.getKinguinPrice = function(req,res) {
 	const options = {
 		protocol: 'https:',
     	hostname: 'api2.kinguin.net',
-    	path: '/integration/v1/products?kinguinId=' + req.params.kid,
+    	path: '/integration/v1/products/' + req.params.kid,
     	headers: {
        		"api-ecommerce-auth": '5327d6c9b3214d7a94f81b5531d6a54d'
     	}
@@ -170,7 +170,7 @@ module.exports.getKinguinPrice = function(req,res) {
 				} else {
 					data = JSON.parse(data);
 
-					price = data.results[0].price * 1.15
+					price = data.price * 1.15
 
 					price = price.toString();
 					price = price + "0"
