@@ -133,7 +133,7 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 			if(gameData.data.kinguinID) {
 
 				var kinguinPrice = new Promise(function(resolve, reject){
-					$http.get('http://gamium.gg/api/kinguin/' + gameData.data.kinguinID).then(function(kinguinData){
+					$http.get('https://gamium.gg/api/kinguin/' + gameData.data.kinguinID).then(function(kinguinData){
 						console.log(kinguinData);
 						$scope.kinguin = kinguinData.data.price;
 
