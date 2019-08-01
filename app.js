@@ -50,17 +50,6 @@ app.use(function(err, req, res, next) {
 // Sitemap
 sitemap.generate(app).XMLtoFile('sitemap.xml');
 
-app.post('/sitemap', function(req, res){
-    res.contentType('application/xml');
-    res.sendFile(path.join(__dirname , 'sitemap.xml'));
-});
-
-// Robots.txt
-app.post('/robots.txt', function(req, res){
-    //res.contentType('application/xml');
-    res.sendFile(path.join(__dirname , 'robots.txt'));
-});
-
 
 /*app.post('/sr', function(req, res) {
 	res.redirect("http://192.168.1.87:3000/search/" + encodeURIComponent(req.body.search));
