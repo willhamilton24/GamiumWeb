@@ -170,7 +170,7 @@ module.exports.getKinguinPrice = function(req,res) {
 				} else {
 					data = JSON.parse(data);
 
-					price = data.price * 1.15
+					price = data.results[0].price * 1.15
 
 					price = price.toString();
 					price = price + "0"
