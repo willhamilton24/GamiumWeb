@@ -56,7 +56,7 @@ async function getUrls () {
 }
 
 // Robots.txt serving
-app.use(robots({Sitemap: 'https://bitmidi.com/sitemap.xml'}))
+app.use(expressRobotsTxt({Sitemap: 'https://bitmidi.com/sitemap.xml'}))
 
 
 /*app.post('/sr', function(req, res) {
