@@ -204,7 +204,7 @@ module.exports.getG2APrice = function(req,res) {
 	const options = {
 		protocol: 'https:',
 		hostname: 'products-export-api.g2a.com',
-		path: '/v1/products?id=' + req.params.gid,
+		path: '/v1/products?includeOutOfStock=true&id=' + req.params.gid,
 		headers: {
 			Authorization: "nSbZhKCVhpoeyAsx, 10d19ba576a124bbabf0d27b62934ca9ff6c93233e56978699e5737cf90bb046"
 		}
