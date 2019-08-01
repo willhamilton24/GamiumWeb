@@ -15,7 +15,7 @@ var apiRouter = require('./AppAPI/routes/index');
 var app = express();
 
 // Sitemap
-sitemap.generate(app).toFile();
+sitemap.generate(app).XMLtoFile('sitemap.xml');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'AppServer', 'views'));
