@@ -14,6 +14,9 @@ var apiRouter = require('./AppAPI/routes/index');
 
 var app = express();
 
+// Sitemap
+sitemap.generate(app).toFile();
+
 // view engine setup
 app.set('views', path.join(__dirname, 'AppServer', 'views'));
 app.set('view engine', 'jade');
@@ -47,8 +50,7 @@ app.use(function(err, req, res, next) {
 });
 
 
-// Sitemap
-sitemap.generate(app)//.XMLtoFile('sitemap.xml');
+
 
 
 /*app.post('/sr', function(req, res) {
