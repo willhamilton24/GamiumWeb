@@ -3,8 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var expressSitemapXML = require('express-sitemap-xml');
-var expressRobotsTxt = require('express-robots-txt');
+var sitemap = require('express-sitemap');
 
 //var fourOhFour = require('./AppServer/views/404.jade');
 
@@ -48,15 +47,19 @@ app.use(function(err, req, res, next) {
 });
 
 
-// XML Sitemap
-app.use(expressSitemapXML(getUrls, 'https://gamium.gg'));
- 
-async function getUrls () {
-  return await getUrlsFromDatabase()
-}
+// Sitemap
+sitemap.generate(app).XMLtoFile('sitemap.xml');
 
-// Robots.txt serving
-app.use(expressRobotsTxt({Sitemap: 'https://bitmidi.com/sitemap.xml'}))
+app.post('/sitemap', function(req, res){
+    res.contentType('application/xml');
+    res.sendFile(path.join(__dirname , 'sitemap.xml'));
+});
+
+// Robots.txt
+app.post('/robots.txt', function(req, res){
+    //res.contentType('application/xml');
+    res.sendFile(path.join(__dirname , 'robots.txt'));
+});
 
 
 /*app.post('/sr', function(req, res) {
