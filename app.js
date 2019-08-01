@@ -49,7 +49,7 @@ app.use(function(err, req, res, next) {
 
 
 // XML Sitemap
-app.use(expressSitemapXml(getUrls, 'https://gamium.gg'));
+app.use(expressSitemapXML(getUrls, 'https://gamium.gg'));
  
 async function getUrls () {
   return await getUrlsFromDatabase()
