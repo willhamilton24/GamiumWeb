@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var sitemap = require('express-sitemap');
+var sitemap = require('express-sitemap')();
 
 //var fourOhFour = require('./AppServer/views/404.jade');
 
@@ -48,7 +48,7 @@ app.use(function(err, req, res, next) {
 
 
 // Sitemap
-sitemap.generate(app).XMLtoFile('sitemap.xml');
+sitemap.generate(app)//.XMLtoFile('sitemap.xml');
 
 
 /*app.post('/sr', function(req, res) {
