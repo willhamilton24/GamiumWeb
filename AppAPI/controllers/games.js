@@ -168,7 +168,7 @@ module.exports.getKinguinPrice = function(req,res) {
 				if (data.charAt(0) == '<') {
 					module.exports.getKinguinPrice(req, res);
 				} else {
-					data = JSON.parse(data);
+					data = JSON.parse(data).docs[0];
 
 					price = data.price * 1.15
 
