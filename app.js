@@ -3,7 +3,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var sitemap = require('express-sitemap')();
 
 //var fourOhFour = require('./AppServer/views/404.jade');
 
@@ -13,9 +12,6 @@ var indexRouter = require('./AppServer/routes/index');
 var apiRouter = require('./AppAPI/routes/index');
 
 var app = express();
-
-// Sitemap
-sitemap.generate(app).XMLtoFile('sitemap.xml');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'AppServer', 'views'));
