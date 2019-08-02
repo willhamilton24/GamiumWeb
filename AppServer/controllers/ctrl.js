@@ -20,19 +20,19 @@ var apiOptions = {
 
 let renderHomepage = function(req, res, featuredGame) {
 	res.render('index', {
-		title: "Gamium"
+		title: "Gamium | Save money on PC games!"
 	});
 }
 
 let renderBugReport = function(req, res) {
 	res.render('contact', {
-		title: "Gamium"
+		title: "Gamium | Contact & Bug Report"
 	});
 }
 
 let renderSearchResults = function(req, res, results) {
 	res.render('search', {
-		title: "Gamium",
+		title: "Gamium | Search",
 		searchResults: results
 	});
 }
@@ -40,7 +40,7 @@ let renderSearchResults = function(req, res, results) {
 let renderGame = function(req, res, game, steamPrice) {
 	console.log(game)
 	res.render('game', {
-		title: game.name,
+		title: "Gamium | Shop for " + game.name + " on PC",
 		gameInfo: {
 			name: game.name,
 			dev: game.dev,
