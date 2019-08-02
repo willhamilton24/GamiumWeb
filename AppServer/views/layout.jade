@@ -16,11 +16,15 @@ html
     script(src='/angular/angular.min.js')
     script(src='/angular/prices.js')
     script(async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+    script(async src='https://www.googletagmanager.com/gtag/js?id=UA-145073802-1')
     script.
       (adsbygoogle = window.adsbygoogle || []).push({
         google_ad_client: "ca-pub-8344348544481342",
         enable_page_level_ads: true
       });
+      window.dataLayer = window.dataLayer || [];
+      gtag('js', new Date());
+      gtag('config', 'UA-145073802-1');
 
 
   body
