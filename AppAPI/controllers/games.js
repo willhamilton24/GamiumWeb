@@ -24,7 +24,7 @@ const getPriceCoeficient = () => {
 }
 
 const parseEuros = (priceInEuros) => {
-	let price = (priceInEuros * EUROtoUSD).toString().substring(0, price.indexOf('.' + 2);
+	let price = (priceInEuros * EUROtoUSD).toString().substring(0, price.indexOf('.' + 2));
 	let point = price.indexOf('.');
 	let p1 = price.substring(0, point);
 	let p2 = price.substring(point).substring(0,2)
