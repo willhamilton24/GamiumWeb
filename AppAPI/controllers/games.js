@@ -39,6 +39,7 @@ var getPriceCoeficient = () => {
 		rates.on('end', () => {
 			EUROtoUSD = JSON.parse(data).rates.USD
 		})
+	})
 }
 
 module.exports.readOneGame = function(req,res) {
