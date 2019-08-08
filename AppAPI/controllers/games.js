@@ -2,34 +2,15 @@ const mongoose = require('mongoose');
 const Nightmare = require('nightmare');
 const https = require('https');
 
-var G = mongoose.model('game');
-var EUROtoUSD = 1.15;
+const G = mongoose.model('game');
+let EUROtoUSD = 1.15;
 
-var sendJsonResponse = function(res, status, content) {
+const sendJsonResponse = function(res, status, content) {
 	res.status(status);
 	res.json(content);
 }
 
-/*module.exports.exchangeRates = function(req, res) {
-	https.get({
-		protocol: 'https:',
-		hostname: 'api.exchangeratesapi.io',
-		path: '/latest'
-	}, (resp) => {
-		let eur = '';
-
-		resp.on('data', (chonk) => {
-			eur += chonk;
-		})
-
-		resp.on('end', () => {
-			EUROtoUSD = JSON.parse(eur).rates.USD
-			sendJsonResponse(res, 200, EUROtoUSD)
-		})
-	})
-}*/
-
-var getPriceCoeficient = () => {
+const getPriceCoeficient = () => {
 	https.get('https://api.exchangeratesapi.io/latest', (rates) => {
 		let data = '';
 		rates.on('data', (chunk) => {
@@ -40,6 +21,15 @@ var getPriceCoeficient = () => {
 			EUROtoUSD = JSON.parse(data).rates.USD
 		})
 	})
+}
+
+const parseEuros = (priceInEuros) => {
+	let price = (priceInEuros * EUROtoUSD).toString().substring(0, price.indexOf('.' + 2);
+	let point = price.indexOf('.');
+	let p1 = price.substring(0, point);
+	let p2 = price.substring(point).substring(0,2)
+
+	sendJsonResponse(res, 200, { "price": "$" + price});
 }
 
 module.exports.readOneGame = function(req,res) {
@@ -186,16 +176,7 @@ module.exports.getKinguinPrice = function(req,res) {
 
 					console.log(data)
 
-					price = data.price * EUROtoUSD
-
-					price = price.toString();
-					price = price + "0"
-					if(price.length > 6) { //ParseInt
-						price = price.substring(0,5);
-						sendJsonResponse(res, 200, { "price": "$" + price});
-					} else {
-						sendJsonResponse(res, 200, { "price": "$" + price});
-					}
+					parseEuros(data.price)
 				
 				}
 			});
@@ -243,16 +224,7 @@ module.exports.getG2APrice = function(req,res) {
 
 					console.log(data)
 
-					price = data.docs[0].minPrice * 1.15;
-
-					price = price.toString();
-					price = price + "0";
-					if(price.length > 6) { //ParseInt
-						price = price.substring(0,5);
-						sendJsonResponse(res, 200, { "price": "$" + price});
-					} else {
-						sendJsonResponse(res, 200, { "price": "$" + price});
-					}
+					parseEuros(data.docs[0].minPrice);
 				
 				}
 			});
