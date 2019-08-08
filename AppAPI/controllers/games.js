@@ -3,7 +3,7 @@ const Nightmare = require('nightmare');
 const https = require('https');
 
 var G = mongoose.model('game');
-var EUROtoUSD = 1.15
+var EUROtoUSD = 1.15;
 
 var sendJsonResponse = function(res, status, content) {
 	res.status(status);
@@ -28,6 +28,18 @@ var sendJsonResponse = function(res, status, content) {
 		})
 	})
 }*/
+
+var getPriceCoeficient = () => {
+	https.get('https://api.exchangeratesapi.io/latest', (rates) => {
+		let data = '';
+		rates.on('data', (chunk) => {
+			data += chunk
+		});
+
+		rates.on('end', () => {
+			EUROtoUSD = JSON.parse(data).rates.USD
+		})
+}
 
 module.exports.readOneGame = function(req,res) {
 	if(req.params && req.params.appid) {
@@ -55,6 +67,7 @@ module.exports.readOneGame = function(req,res) {
 }
 
 module.exports.readOneGameByName = function(req,res) {
+	getPriceCoeficient();
 	if(req.params && req.params.name) {
 		console.log(decodeURIComponent(req.params.name));
 		G.findOne({'name' : decodeURIComponent(req.params.name)})
@@ -172,7 +185,7 @@ module.exports.getKinguinPrice = function(req,res) {
 
 					console.log(data)
 
-					price = data.price * 1.15
+					price = data.price * EUROtoUSD
 
 					price = price.toString();
 					price = price + "0"
