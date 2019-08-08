@@ -172,7 +172,11 @@ module.exports.getKinguinPrice = function(req,res) {
 
 					console.log(data)
 
-					sendJsonResponse(res, 200, { "price": "$" + parseEuros(data.price)});
+					let pr = parseEuros(data.price)
+
+					console.log(pr);
+
+					sendJsonResponse(res, 200, { "price": "$" + pr });
 				
 				}
 			});
@@ -220,7 +224,10 @@ module.exports.getG2APrice = function(req,res) {
 
 					console.log(data)
 
-					sendJsonResponse(res, 200, { "price": "$" + parseEuros(data.docs[0].minPrice)});
+					let pr = parseEuros(data.docs[0].minPrice)
+					console.log(pr);
+
+					sendJsonResponse(res, 200, { "price": "$" + pr });
 				
 				}
 			});
