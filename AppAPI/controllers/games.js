@@ -23,7 +23,7 @@ const getPriceCoeficient = () => {
 	})
 }
 
-const parseEuros = (priceInEuro, callback) => {
+const parseEuros = (priceInEuros, callback) => {
 	let price = (priceInEuros * EUROtoUSD).toString()
 	callback(price.substring(0, price.indexOf('.') + 3));
 }
