@@ -23,9 +23,9 @@ const getPriceCoeficient = () => {
 	})
 }
 
-const parseEuros = (priceInEuros) => {
+const parseEuros = (priceInEuro, callback) => {
 	let price = (priceInEuros * EUROtoUSD).toString()
-	return price.substring(0, price.indexOf('.') + 3);
+	callback(price.substring(0, price.indexOf('.') + 3));
 }
 
 module.exports.readOneGame = function(req,res) {
@@ -172,12 +172,9 @@ module.exports.getKinguinPrice = function(req,res) {
 
 					console.log(data)
 
-					let pr = parseEuros(data.price)
-
-					console.log(pr);
-
-					sendJsonResponse(res, 200, { "price": "$" + pr });
-				
+					parseEuros(data.price, (pr) => {
+						sendJsonResponse(res, 200, { "price": "$" + pr });
+					})
 				}
 			});
 
@@ -224,10 +221,9 @@ module.exports.getG2APrice = function(req,res) {
 
 					console.log(data)
 
-					let pr = parseEuros(data.docs[0].minPrice)
-					console.log(pr);
-
-					sendJsonResponse(res, 200, { "price": "$" + pr });
+					parseEuros(data.docs[0].minPrice, (pr) => {
+						sendJsonResponse(res, 200, { "price": "$" + pr });
+					})
 				
 				}
 			});
