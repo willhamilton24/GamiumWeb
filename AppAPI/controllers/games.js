@@ -25,7 +25,7 @@ const getPriceCoeficient = () => {
 
 const parseEuros = (priceInEuros) => {
 	let price = (priceInEuros * EUROtoUSD).toString()
-	return price.substring(0, price.indexOf('.' + 2));
+	return price.substring(0, price.indexOf('.') + 3);
 }
 
 module.exports.readOneGame = function(req,res) {
