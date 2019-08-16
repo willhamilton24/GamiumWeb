@@ -2,12 +2,7 @@ extends layout
 
 block content
 
-  .contact-container
-    .contact-ad-mobile 
-      img.my-2.descb(src="https://placekitten.com/728/90")
-    .vertical-ad-left
-      img(src="https://placekitten.com/120/600")
-
+  .contact-container.container
     .contact-form
       h1.mt-3 Contact / Bug Report
       p.contact-description Having issues with Gamium? Wanna tell us how great we are? Fill in the form below for any comments, complaints, or feedback.
@@ -18,11 +13,5 @@ block content
         label.contact-label Content
         textarea.form-control.contact-input(placeholder="Render unto us, your words" rows='8' name='content')
         button.btn.btn-primary.contact-btn(type="submit") Submit
-
-    .vertical-ad-right
-      img.float-right(src="https://placekitten.com/120/600")
-
-    .contact-ad-mobile
-      img.my-2.descb(src="https://placekitten.com/728/90")
 
     script(src='/javascripts/submitForm.js')

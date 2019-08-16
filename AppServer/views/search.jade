@@ -1,35 +1,29 @@
 extends layout
 
 block content
-
-  .search-contact-ad-mobile
-    img.my-2.descb(src="https://placekitten.com/728/90")
-  .search-vertical-ad-left
-    img(src="https://placekitten.com/120/600")
-  .search-container
+  .row
+    .col-1
+    .search-container.col-10
     
-    .search-title SEARCH RESULTS
-    if searchResults.length>1
-      each result in searchResults
-        .search-result
-          - if (result.img) {
-            img.search-thumbnail(src='#{result.img}')
-          - } else {
-            img.search-thumbnail(src='/images/GOG.jpg')
-          - }
+      .search-title SEARCH RESULTS
+      if searchResults.length>1
+        each result in searchResults
+          .search-result
+            - if (result.img) {
+              img.search-thumbnail(src='#{result.img}')
+            - } else {
+              img.search-thumbnail(src='/images/GOG.jpg')
+            - }
           
-          .search-game-title
-            a(href='https://gamium.gg/game/#{result.appid}')= result.name
+            .search-game-title
+               a(href='https://gamium.gg/game/#{result.appid}')= result.name
 
-          .rI
-            .result-info
-              li Release:  #{result.rDate}
-              li Developer: #{result.dev}
-              li Publisher: #{result.publisher}
-    else
-      h1.no-results No Results Found
-  .contact-ad-mobile
-    img.my-2.descb(src="https://placekitten.com/728/90")
-  .search-vertical-ad-right
-    img.float-right(src="https://placekitten.com/120/600")
+            .rI
+              .result-info
+                li Release:  #{result.rDate}
+                li Developer: #{result.dev}
+                li Publisher: #{result.publisher}
+      else
+        h1.no-results No Results Found
+    .col-1
 

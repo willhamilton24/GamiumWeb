@@ -245,7 +245,7 @@ footer {
 	background-color: #343a40;
 	/*background-color: #20211D;*/
 	/*background-color: #3f3f3f;*/
-	padding-top: 50px;
+	padding-top: 35px;
 	padding-bottom: 50px;
 	padding-right: 16px;
 	padding-left: 16px;
@@ -253,12 +253,14 @@ footer {
 }
 
 .title-text {
-	text-align: left;
+	text-align: center;
 	display: none;
+	padding-bottom: 20px;
+	font-size: 5vh;
 }
 
 .title-content-box {
-	text-align: left;
+	text-align: center;
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
