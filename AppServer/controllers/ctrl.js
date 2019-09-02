@@ -51,7 +51,7 @@ let renderGame = function(req, res, game, steamPrice) {
 			goglink: game.goglink,
 			id: game.appid,
 			g2alink: "https://www.g2a.com" + game.g2aLink,
-			kinguinlink: "https://www.kinguin.net/catagory/" + game.kinguinID
+			kinguinlink: "https://www.kinguin.net/category/" + game.kinguinID
 		},
 		steam : steamPrice
 	});
