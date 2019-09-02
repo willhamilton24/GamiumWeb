@@ -638,6 +638,10 @@ footer {
 		float: right;
 		margin-top: 5px;
 	}
+
+	.mainBox {
+		margin-top: 10vh;
+	}
     
 }
 
@@ -679,6 +683,10 @@ footer {
 
 	.btn-home-mobile {
 		display: none;
+	}
+
+	.mainBox {
+		margin-top: 10vh;
 	}
 
 }
@@ -803,6 +811,10 @@ footer {
 		padding-top: 100px;
 		float: left;
 		display: inline-block;
+	}
+
+	.mainBox {
+		margin-top: 10vh;
 	}
 
 /*	.footer-text {
