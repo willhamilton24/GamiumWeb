@@ -46,7 +46,7 @@ priceApp.controller('getPrices', ['$scope', '$http', function($scope, $http) {
 	$http.get('https://gamium.gg/api/gamesname/' + name).then(function(gameData) {
 		console.log(gameData.data);
 		var id = gameData.data.appid;
-		if(gameData.data.gogprice) {
+		if(gameData.data.gogLink) {
 			console.log("starting price finding");
 			$http.get('https://gamium.gg/api/gog/' + id).then(function(gogData) {
 				console.log("gotten");
