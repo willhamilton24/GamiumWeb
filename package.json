@@ -8,7 +8,7 @@
   "dependencies": {
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
-    "electron": "^3.0.9",
+    "electron": "^13.6.6",
     "express": "^4.16.4",
     "express-robots-txt": "^0.4.1",
     "express-sitemap": "^1.8.0",
