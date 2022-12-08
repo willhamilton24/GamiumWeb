@@ -9,7 +9,7 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "electron": "^3.0.9",
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "express-robots-txt": "^0.4.1",
     "express-sitemap": "^1.8.0",
     "express-sitemap-xml": "^1.1.0",
